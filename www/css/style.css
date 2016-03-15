@@ -1,1 +1,13 @@
-/* Empty. Add your own CSS if you like */
+.item-menu{
+    /*border:1px solid red;*/
+}
+.icon-item-menu-wrap, .icon-item-text-wrap{
+    float: left;
+    display: inline-block;
+}
+.icon-item-menu-wrap{
+    font-size: 15pt;
+}
+.icon-item-text-wrap{
+    margin-left: 10px;
+}
