@@ -1,5 +1,84 @@
 <ion-view view-title="Profile">
-  <ion-content>
-    <h1>Profile</h1>
-  </ion-content>
+    <ion-content overflow-scroll="true" padding="true">
+        <div class="list card">
+            <div class="profile-userinfo">
+                <div class="profile-userinfo-photo-wrap">
+                    <div class="profile-userinfo-photo">
+                        <img width="100%" src="http://media.kg-portal.ru/images/avatar/avatar_30.jpg">
+                    </div>
+                    <div class="state-friendship">You
+                        <!--<div ng-show="friendshipText">You are friends</div>
+                        <button ng-show="friendshipButton" ng-click="addToFriend()"
+                                class="button button-small button-outline button-positive friendship-add">Add
+                        </button>-->
+                    </div>
+                </div>
+                <div class="profile-userinfo-name-wrap">
+                    <div class="profile-userinfo-name">
+                        Скоробогатов Вениамин
+                    </div>
+                    <div class="profile-userinfo-menu">
+                        <div class="userinfo">
+                            <div class="userinfo-menu-icon-wrap">
+                                <i class="icon ion-ios-information-outline"></i>
+                            </div>
+                            <div class="userinfo-menu-text-wrap">
+                                Info
+                            </div>
+                        </div>
+                        <div class="followers">
+                            <div class="userinfo-menu-icon-wrap">
+                                <i class="icon ion-social-rss-outline"></i>
+                            </div>
+                            <div class="userinfo-menu-text-wrap">
+                                Followers
+                            </div>
+                        </div>
+                        <div class="points">
+                            <div class="userinfo-menu-icon-wrap">
+                                <i class="icon ion-ribbon-b"></i>
+                            </div>
+                            <div class="userinfo-menu-text-wrap">
+                                Points
+                            </div>
+                        </div>
+                        <div class="stars" ui-sref="app.mystars">
+                            <div class="userinfo-menu-icon-wrap">
+                                <i class="icon ion-ios-star-outline"></i>
+                            </div>
+                            <div class="userinfo-menu-text-wrap">
+                                Stars
+                            </div>
+                        </div>
+                        <div class="programms">
+                            <div class="userinfo-menu-icon-wrap">
+                                <i class="icon ion-ios-pricetags-outline"></i>
+                            </div>
+                            <div class="userinfo-menu-text-wrap">
+                                Programms
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="head-profile-wall">
+        <div class="head-profile-wall-text">Your Wall</div>
+        </div>
+        <div class="profile-wall">
+            <!--<div class="row responsive-md">
+                <div class="col">-->
+                    <div class="list card" ng-repeat="offer in profileWall">
+                        <div class="item item-image">
+                            <img src='{{offer.url_img}}'>
+                        </div>
+                        <a class="item item-icon-left {{offer.color}}" href="#">
+                            <i class="icon ion-ios-paw-outline"></i>
+                            {{offer.text}}
+                        </a>
+                    </div>
+                </div>
+            <!--</div>
+        </div>-->
+    </ion-content>
 </ion-view>

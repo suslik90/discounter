@@ -1,0 +1,14 @@
+<ion-view view-title="My Stars">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+            <!---->
+            <div ng-repeat="brand in brands">
+                <div class="item item-avatar">
+                    <img src={{brand.imglogo}}>
+                    <h2>{{brand.name}}</h2>
+                    <p>{{brand.count}} stars</p>
+                </div>
+          </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

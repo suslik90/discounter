@@ -6,29 +6,37 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.routes', 'starter.services', 'starter.directives'])
 
-.run(function($ionicPlatform, $timeout) {
-  $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-    if (window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-      cordova.plugins.Keyboard.disableScroll(true);
+    .run(function ($ionicPlatform, $timeout) {
+        $ionicPlatform.ready(function () {
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                cordova.plugins.Keyboard.disableScroll(true);
 
-    }
-    //if (window.StatusBar) {
-    //  // org.apache.cordova.statusbar required
-    //  StatusBar.styleDefault();
-    //}
-    if (ionic.Platform.isAndroid()) {
-      StatusBar.backgroundColorByHexString("#f8f8f8");
-    } else {
-      StatusBar.styleLightContent();
-    }
-    //setTimeout(function(){
-    //  navigator.splashscreen.hide();
-    //},100);
-    $timeout(function() {
-      navigator.splashscreen.hide();
-    }, 500);
-  });
-});
+            }
+            //if (window.StatusBar) {
+            //  // org.apache.cordova.statusbar required
+            //  StatusBar.styleDefault();
+            //}
+            if (ionic.Platform.isAndroid()) {
+                StatusBar.backgroundColorByHexString("#f8f8f8");
+            } else {
+                StatusBar.styleLightContent();
+            }
+            //setTimeout(function(){
+            //  navigator.splashscreen.hide();
+            //},100);
+            $timeout(function () {
+                navigator.splashscreen.hide();
+            }, 500);
+        });
+    })
+    .config(function ($ionicConfigProvider) {
+        $ionicConfigProvider.views.transition('platform');
+        $ionicConfigProvider.backButton.icon('ion-ios-arrow-back');
+        $ionicConfigProvider.backButton.text('');                  // default is 'Back'
+        $ionicConfigProvider.backButton.previousTitleText(false);
+        $ionicConfigProvider.navBar.alignTitle('center');
+    })
+;

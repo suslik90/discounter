@@ -1,5 +1,5 @@
 angular.module('starter.routes', [])
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('app', {
                 url: '/app',
@@ -61,7 +61,7 @@ angular.module('starter.routes', [])
                     }
                 }
             })
-                .state('app.settings', {
+            .state('app.settings', {
                 url: '/settings',
                 views: {
                     'menuContent': {
@@ -69,7 +69,18 @@ angular.module('starter.routes', [])
                         controller: 'settingsCtrl'
                     }
                 }
-            });
+            })
+            .state('app.mystars', {
+                url: '/mystars',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/mystars.html',
+                        controller: 'mystarsCtrl'
+                    }
+                }
+            })
+        ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/feed');
+        //$urlRouterProvider.otherwise('/profile');
     });
