@@ -101,3 +101,47 @@
     text-align: center;
 }
 /*****************/
+
+/******GROUP******/
+.item-group{
+    display: inline-block;
+    float: left;
+    width:80%;
+    border:1px solid red;
+}
+.group-arrow{
+    float: right;
+    margin-top: -31px;
+}
+.info-group-logo{
+    width:100%;
+    max-height: 250px;
+
+    overflow: hidden;
+}
+.info-group-logo img{
+    width:100%;
+
+}
+.info-group-info{
+    height: 55px;
+    margin-top: 5px;
+}
+
+.info-group-info-icon{
+    float: left;
+    display: inline-block;
+    font-size: 20pt;
+}
+.info-wrap{
+    width:33.33%;
+    float: left;
+}
+.info-group-info-count .text{
+    margin-left: 30px;
+    margin-top: 5px;
+}
+.group-info-full{
+    margin-top: -15px;
+}
+/*****************/

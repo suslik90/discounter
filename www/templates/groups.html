@@ -1,5 +1,20 @@
 <ion-view view-title="Groups">
-    <ion-content>
-        <h1>Groups</h1>
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+            <div ng-repeat="group in groups">
+                <div class="item item-avatar" ng-click="goToGroup('{{group.id}}','{{group.name}}','{{group.logo}}')">
+
+                        <img src='{{group.logo}}'/>
+
+                        <h2>{{group.name}}</h2>
+
+                        <p>{{group.count}} users</p>
+
+                    <div class="group-arrow">
+                        <i class="ion-ios-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
     </ion-content>
 </ion-view>

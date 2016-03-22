@@ -1,0 +1,54 @@
+<ion-view view-title="{{infoGroup.titleGroup}}">
+    <ion-content overflow-scroll="true">
+        <div class="info-group-logo">
+            <img src='{{infoGroup.logo}}'/>
+        </div>
+        <div class="info-group-info padding">
+            <!--<div class="info-group-info-title">Info</div>-->
+            <div class="info-group-info-count info-wrap" ng-click="showFullInfo()">
+                <div class="info-group-info-icon">
+                    <i class="icon ion-ios-paper-outline"></i>
+                </div>
+                <div class="text">
+                    Information
+                </div>
+            </div>
+            <div class="info-group-info-count info-wrap">
+                <div class="info-group-info-icon">
+                    <i class="icon ion-social-rss-outline"></i>
+                </div>
+                <div class="text">
+                    1,300 users
+                </div>
+            </div>
+            <div class="info-group-info-count info-wrap">
+                <div class="info-group-info-icon">
+                    <i class="icon ion-ios-person-outline"></i>
+                </div>
+                <div class="text">
+                    50 users
+                </div>
+            </div>
+            <!--<div class="info-group-info-friends">Info</div>-->
+        </div>
+        <div class="group-info-full padding" ng-show="fullInfo">
+            МОСКВА, 22 марта. /ТАСС/. Московский клуб ЦСКА обыграл санкт-петербургский СКА со счетом 3:0 на своей
+            площадке
+            в первом матче серии ½ финала Кубка Гагарина Континентальной хоккейной лиги (КХЛ).
+        </div>
+
+        <div class="group-wall">
+            <div class="list card" ng-repeat="offer in groupWall">
+                <div class="item item-image">
+                    <img src='/{{offer.url_img}}'/>
+                </div>
+                <a class="item item-icon-left {{offer.color}}" href="#">
+                    <i class="icon ion-ios-paw-outline"></i>
+                    {{offer.text}}
+                </a>
+            </div>
+        </div>
+
+
+    </ion-content>
+</ion-view>

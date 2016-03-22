@@ -79,8 +79,17 @@ angular.module('starter.routes', [])
                     }
                 }
             })
+            .state('app.groupProfile', {
+                url: '/groupProfile/:id/:name/:logo',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/groupProfile.html',
+                        controller: 'groupProfileCtrl'
+                    }
+                }
+            })
         ;
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/feed');
+        $urlRouterProvider.otherwise('/app/groups');
         //$urlRouterProvider.otherwise('/profile');
     });
