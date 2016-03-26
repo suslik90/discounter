@@ -59,7 +59,18 @@
             </ion-tab>
 
             <ion-tab title="Users offer" icon-on="ion-ios-star" icon-off="ion-ios-star-outline">
-                <!-- Tab 2 content -->
+                <div style="overflow-y: scroll;margin-top: 48px;">
+                    <ion-list>
+                        <div ng-repeat="userWithStars in usersListInGroupWithStars">
+                            <div class="item item-avatar">
+                                <!--<img src='{{user.imglogo}}'/>-->
+                                <h2>{{userWithStars.name}}</h2>
+
+                                <p>{{userWithStars.stars}} stars</p>
+                            </div>
+                        </div>
+                    </ion-list>
+                </div>
             </ion-tab>
 
         </ion-tabs>

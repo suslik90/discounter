@@ -93,6 +93,26 @@ angular.module('starter.controllers', [])
                 }
             }
 
+
+            var usersWithStars = [
+                {id: 10, name: "Василий Иваныч", stars: 48, city: "Boston"},
+                {id: 11, name: "Петька", stars: 48, city: "Roterdam"},
+                {id: 12, name: "Анка Пулеметчица", stars: 48, city: "The Rashka"},
+                {id: 13, name: "Василий Иваныч", stars: 48, city: "Boston"},
+                {id: 14, name: "Петька", stars: 48, city: "Roterdam"},
+                {id: 15, name: "Анка Пулеметчица", stars: 48, city: "The Rashka"},
+                {id: 16, name: "Василий Иваныч", stars: 48, city: "Boston"},
+                {id: 17, name: "Петька", stars: 48, city: "Roterdam"},
+                {id: 18, name: "Анка Пулеметчица", stars: 48, city: "The Rashka"},
+                {id: 19, name: "Василий Иваныч", stars: 48, city: "Boston"},
+                {id: 20, name: "Петька", stars: 48, city: "Roterdam"},
+                {id: 21, name: "Анка Пулеметчица", stars: 48, city: "The Rashka"},
+                {id: 22, name: "Василий Иваныч", stars: 48, city: "Boston"},
+                {id: 23, name: "Петька", stars: 48, city: "Roterdam"},
+                {id: 24, name: "Анка Пулеметчица", stars: 48, city: "The Rashka"}
+            ];
+            $scope.usersListInGroupWithStars =usersWithStars;
+
             $scope.goToGroupUsers = function(){
                 $state.go('app.userGroupList',{group: $stateParams.id, user:1, isfriend:"0"});
             }
