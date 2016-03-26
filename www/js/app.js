@@ -38,5 +38,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.routes', 'st
         $ionicConfigProvider.backButton.text('');                  // default is 'Back'
         $ionicConfigProvider.backButton.previousTitleText(false);
         $ionicConfigProvider.navBar.alignTitle('center');
+        //$ionicConfigProvider.scrolling.jsScrolling(true);
     })
 ;

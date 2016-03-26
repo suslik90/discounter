@@ -41,6 +41,7 @@ angular.module('starter.controllers', [])
     })
     .controller('groupsCtrl', function ($scope, $state, $ionicScrollDelegate) {
         $ionicScrollDelegate.scrollTop();
+        $scope.$on('$ionicView.beforeEnter', function(){
         $scope.groups = [
             {id: 1, name: "Любители походов",count: 1000, logo: "http://ctc-kuzbass.ru/wp-content/uploads/2015/06/Kak-pravilno-splanirovat-pohod-na-prirodu.jpg"},
             {id: 2, name: "Любители плавать",count: 1000000, logo: "http://www.13min.ru/wp-content/uploads/2012/08/Rebjonok-uchitsja-plavat.jpg"},
@@ -50,11 +51,15 @@ angular.module('starter.controllers', [])
             {id: 6, name: "Любители селедки",count: 78400, logo: "http://www.timeboil.ru/img/site/12969313911307.jpg"},
             {id: 7, name: "Любители огурцов",count: 35, logo: "http://mir-ovosey.ru/wp-content/uploads/2011/04/ogurec4.jpg"},
             {id: 8, name: "Любители собак",count: 7, logo: "http://dermatyt.ru/wp-content/uploads/2015/02/sobaka-1.jpg"},
+            {id: 9, name: "Любители собак",count: 7, logo: "http://dermatyt.ru/wp-content/uploads/2015/02/sobaka-1.jpg"},
+            {id: 10, name: "Любители собак",count: 7, logo: "http://dermatyt.ru/wp-content/uploads/2015/02/sobaka-1.jpg"},
         ];
+
 
         $scope.goToGroup = function(id, name, logo){
             $state.go('app.groupProfile',{id:id,name:name,logo:logo});
         }
+        });
     })
     .controller('bookmarkCtrl', function ($scope, $stateParams) {
     })
@@ -70,20 +75,70 @@ angular.module('starter.controllers', [])
             {name:"Re:Store",count: 555, imglogo:"http://perm24.net/com_logo/1253091118logo1_big.jpg"}
         ];
     })
-    .controller('groupProfileCtrl', function ($scope, $state, $stateParams) {
+    .controller('groupProfileCtrl', function ($scope, $state, $stateParams, swipeMenu, $ionicSideMenuDelegate) {
         $scope.infoGroup = {titleGroup:$stateParams.name, logo: $stateParams.logo};
-        $scope.groupWall = [
-            {url_img: "img/cat.jpeg",text: "Про котЭ",color: "positive"},
-            {url_img: "img/dog.jpeg",text: "Про собакЭ",color: "calm"},
-            {url_img: "img/sove.jpg",text: "Про совЭ",color: "royal"}
-        ];
-        $scope.showFullInfo = function(){
-            //$scope.fullInfo = true;
-            if($scope.fullInfo == true){
-                $scope.fullInfo = false;
-            }else{
-                $scope.fullInfo = true;
+        $scope.$on('$ionicView.beforeEnter', function(){
+
+            $scope.groupWall = [
+                {url_img: "img/cat.jpeg",text: "Про котЭ",color: "positive"},
+                {url_img: "img/dog.jpeg",text: "Про собакЭ",color: "calm"},
+                {url_img: "img/sove.jpg",text: "Про совЭ",color: "royal"}
+            ];
+            $scope.showFullInfo = function(){
+                //$scope.fullInfo = true;
+                if($scope.fullInfo == true){
+                    $scope.fullInfo = false;
+                }else{
+                    $scope.fullInfo = true;
+                }
             }
-        }
+
+            $scope.goToGroupUsers = function(){
+                $state.go('app.userGroupList',{group: $stateParams.id, user:1, isfriend:"0"});
+            }
+            $scope.goToGroupFriends = function(){
+                $state.go('app.userGroupList',{group: $stateParams.id, user:1, isfriend:"1"});
+            }
+            //$ionicSideMenuDelegate.canDragContent(true);
+        });
+
+
+
+    })
+    .controller('userGroupListCtrl', function ($scope, $state, $stateParams, swipeMenu, $ionicTabsDelegate) {
+       // $scope.$on('$ionicView.beforeEnter', function() {
+            var friendsUser1 = [
+                {id: 10, name: "Василий Иваныч", old: 48, city: "Boston"},
+                {id: 11, name: "Петька", old: 22, city: "Roterdam"},
+                {id: 12, name: "Анка Пулеметчица", old: 30, city: "The Rashka"}
+            ];
+            var allUsers = [
+                {id: 10, name: "Василий Иваныч", old: 48, city: "Boston"},
+                {id: 11, name: "Петька", old: 48, city: "Roterdam"},
+                {id: 12, name: "Анка Пулеметчица", old: 48, city: "The Rashka"},
+                {id: 13, name: "Василий Иваныч", old: 48, city: "Boston"},
+                {id: 14, name: "Петька", old: 48, city: "Roterdam"},
+                {id: 15, name: "Анка Пулеметчица", old: 48, city: "The Rashka"},
+                {id: 16, name: "Василий Иваныч", old: 48, city: "Boston"},
+                {id: 17, name: "Петька", old: 48, city: "Roterdam"},
+                {id: 18, name: "Анка Пулеметчица", old: 48, city: "The Rashka"},
+                {id: 19, name: "Василий Иваныч", old: 48, city: "Boston"},
+                {id: 20, name: "Петька", old: 48, city: "Roterdam"},
+                {id: 21, name: "Анка Пулеметчица", old: 48, city: "The Rashka"},
+                {id: 22, name: "Василий Иваныч", old: 48, city: "Boston"},
+                {id: 23, name: "Петька", old: 48, city: "Roterdam"},
+                {id: 24, name: "Анка Пулеметчица", old: 48, city: "The Rashka"}
+            ];
+
+            if ($stateParams.isfriend == "1") {
+                $scope.usersListInGroup = friendsUser1;
+                $scope.titleUserGroupList = "You friends"
+            }
+            else {
+                $scope.usersListInGroup = allUsers;
+                $scope.titleUserGroupList = "All users"
+            }
+        //});
+
     })
 ;

@@ -1,0 +1,14 @@
+<ion-view view-title="{{titleUserGroupList}}">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <ion-list>
+            <!---->
+            <div ng-repeat="user in usersListInGroup">
+                <div class="item item-avatar">
+                    <!--<img src='{{user.imglogo}}'/>-->
+                    <h2>{{user.name}}</h2>
+                    <p>{{user.city}}, {{user.old}} year</p>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

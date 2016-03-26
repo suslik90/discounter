@@ -88,6 +88,15 @@ angular.module('starter.routes', [])
                     }
                 }
             })
+            .state('app.userGroupList', {
+                url: '/userGroupList/:group/:user/:isfriend',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/userGroupList.html',
+                        controller: 'userGroupListCtrl'
+                    }
+                }
+            })
         ;
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/groups');

@@ -36,7 +36,7 @@
 }
 
 .profile-userinfo-name-wrap {
-    max-width: 200px;
+    max-width: 170px;
     max-height: 250px;
     display: inline-block;
     word-break: normal;
@@ -143,5 +143,8 @@
 }
 .group-info-full{
     margin-top: -15px;
+}
+.tab-item{
+    max-width: 49.9%;
 }
 /*****************/
