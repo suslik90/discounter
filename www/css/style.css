@@ -148,3 +148,50 @@
     max-width: 49.9%;
 }
 /*****************/
+
+.authWrap{
+    margin-top: 20px;
+}
+.invalid{
+    padding:5px;
+    color:red;
+    text-align: center;
+}
+.wrapFormMessage{
+    display: inline-flex;
+    width:100%;
+    padding: 0 10px 10px 10px;
+}
+.wrapTextarea{
+    width:90%;
+}
+.wrapAddMessage{
+    width:9.99%;
+    height: 35px;
+    text-align: right;
+    font-size: 40px;
+
+}
+.bar-footer{
+    height: 60px;
+}
+.message{
+    width: 100%;
+}
+.messageText{
+    width:65%;
+    padding:5px;
+    border-radius:3px
+}
+.myMessage{
+    background-color: white;
+    float: left;
+    margin-top: 10px;
+
+}
+
+.notMyMessage{
+    margin-top: 10px;
+    background-color: #C2E8C3;
+    float: right;
+}

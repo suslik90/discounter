@@ -34,6 +34,10 @@ angular.module('starter.services', [])
             }
         }
     }])
+    .factory("Items", function($firebaseArray) {
+        var itemsRef = new Firebase("https://status873854.firebaseio.com/items");
+        return $firebaseArray(itemsRef);
+    })
 
     .service('BlankService', [function () {
 

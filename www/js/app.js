@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.routes', 'starter.services', 'starter.directives'])
+angular.module('starter', ['ionic','ionic.service.core', "firebase",'starter.controllers', 'starter.routes', 'starter.services', 'starter.directives'])
 
     .run(function ($ionicPlatform, $timeout) {
         $ionicPlatform.ready(function () {
@@ -30,6 +30,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.routes', 'st
             $timeout(function () {
                 navigator.splashscreen.hide();
             }, 500);
+
+            $ionicPlatform.ready(function() {
+                var push = new Ionic.Push({
+                    "debug": true
+                });
+
+                push.register(function(token) {
+                    console.log("Device token:",token.token);
+                    push.saveToken(token);  // persist the token in the Ionic Platform
+                });
+            });
         });
     })
     .config(function ($ionicConfigProvider) {

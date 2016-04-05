@@ -1,5 +1,26 @@
 <ion-view view-title="Messages">
-  <ion-content>
-    <h1>Messages</h1>
-  </ion-content>
+    <ion-content style="background-color: #e5e5e5;">
+        <h1>Messages</h1>
+        <ion-list>
+            <input type="hidden" ng-model="iduser">
+            <div class="message" ng-repeat="item in items">
+                <div class="messageText" ng-class="({{item.from}} == iduser) ? 'myMessage' : 'notMyMessage'">
+                    {{item.text}}
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
 </ion-view>
+<ion-footer-bar>
+    <div class="wrapFormMessage">
+        <div class="wrapTextarea">
+            <label class="item item-input">
+                <textarea ng-model="message" placeholder="messange"></textarea>
+            </label>
+        </div>
+        <div class="wrapAddMessage">
+            <i class="ion-ios-paperplane-outline" ng-click="addItem()">
+            </i>
+        </div>
+    </div>
+</ion-footer-bar>

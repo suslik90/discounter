@@ -1,25 +1,17 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear">Close</button>
-    </div>
-  </ion-header-bar>
+<ion-view title="Login">
+
   <ion-content>
-    <form>
+    <div class="authWrap">
+    <form name="authForm" ng-submit="signIn(username)">
       <div class="list">
         <label class="item item-input">
           <span class="input-label">Username</span>
-          <input type="text" ng-model="loginData.username">
+          <input ng-focus="hideInvalidBlock()" type="text" ng-model="username">
         </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="loginData.password">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Log in</button>
-        </label>
+        <div class="invalid" ng-show="invalidAuthForm">Incorrect login</div>
+          <button class="button button-positive button-full" type="submit">Log in</button>
       </div>
     </form>
+      </div>
   </ion-content>
-</ion-modal-view>
+</ion-view>

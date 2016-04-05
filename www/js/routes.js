@@ -7,6 +7,7 @@ angular.module('starter.routes', [])
                 templateUrl: 'templates/menu.html',
                 controller: 'appCtrl'
             })
+
             .state('app.feed', {
                 url: '/feed',
                 views: {
@@ -97,8 +98,17 @@ angular.module('starter.routes', [])
                     }
                 }
             })
+            .state('app.login', {
+                url: '/login',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/login.html',
+                        controller: 'loginCtrl'
+                    }
+                }
+            })
         ;
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/groups');
-        //$urlRouterProvider.otherwise('/profile');
+        //$urlRouterProvider.otherwise('/app/messages');
+       $urlRouterProvider.otherwise('/app/login');
     });

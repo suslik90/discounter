@@ -8,12 +8,42 @@ angular.module('starter.controllers', [])
     .controller('appCtrl', function ($scope, $ionicModal, $timeout) {
 
     })
+    .controller('loginCtrl', function ($scope, $localstorage, $state, $ionicHistory,$ionicModal, $timeout) {
+      $scope.signIn = function(username){
+          if(username == "mike"){
+
+              $ionicHistory.nextViewOptions({
+                  disableBack: true
+              });
+
+              $localstorage.set("id", 1);
+              $state.go("app.profile");
+          }else if(username == "ron"){
+              $ionicHistory.nextViewOptions({
+                  disableBack: true
+              });
+
+              $localstorage.set("id", 2);
+              $state.go("app.profile");
+          }else{
+              $scope.invalidAuthForm = true;
+          }
+
+
+          //console.log(username);
+      }
+        $scope.hideInvalidBlock = function(){
+            $scope.invalidAuthForm = false;
+        }
+    })
     .controller('feedCtrl', function ($scope) {
     })
     .controller('searchCtrl', function ($scope, $stateParams) {
     })
-    .controller('profileCtrl', function ($scope, $localstorage, $ionicScrollDelegate) {
+    .controller('profileCtrl', function ($scope, $localstorage, $ionicScrollDelegate, $ionicHistory) {
         $ionicScrollDelegate.scrollTop();
+        $ionicHistory.clearHistory();
+        $ionicHistory.clearCache();
         $scope.profileWall = [
             {url_img: "img/cat.jpeg",text: "Про котЭ",color: "positive"},
             {url_img: "img/dog.jpeg",text: "Про собакЭ",color: "calm"},
@@ -37,7 +67,35 @@ angular.module('starter.controllers', [])
         }
 
     })
-    .controller('messagesCtrl', function ($scope, $stateParams) {
+    .controller('messagesCtrl', function ($scope, $localstorage, Items, $timeout) {
+
+        $scope.iduser = $localstorage.get("id");
+        console.log($scope.iduser);
+        $scope.addItem = function() {
+            var text = $scope.message;
+            var user = $localstorage.get("id");
+            if (text) {
+                $scope.items.$add({
+                    "from": user,
+                    "text": text
+                });
+            }
+            $scope.message="";
+        };
+
+        $scope.getItems = function(){
+            $scope.items = Items;
+        }
+
+        $scope.getItems();
+
+        $timeout(function(Items){
+            $scope.getItems();
+        }, 1000);
+    })
+    .controller('RoomsCtrl', function ($scope, Rooms) {
+        console.log("Rooms Controller initialized");
+        $scope.rooms = Rooms.all();
     })
     .controller('groupsCtrl', function ($scope, $state, $ionicScrollDelegate) {
         $ionicScrollDelegate.scrollTop();
