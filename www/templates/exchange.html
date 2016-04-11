@@ -1,0 +1,33 @@
+<ion-view view-title="Exchange">
+    <ion-content overflow-scroll="true" padding="true">
+        <div class="list">
+                <select ng-model="Exchange.selectSend" class="item item-select select-exchange">
+                    <option value="0" selected="selected">Выберите что-нибудь</option>
+                    <option value="1" selected>Спортмастер</option>
+                    <option value="2">Дикси</option>
+                    <option value="3">Лента</option>
+                    <option value="4">Рив Гош</option>
+                    <option value="5">Мега Дилдо</option>
+                          </select>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Count stars you send</span>
+                <input type="number" ng-model="Exchange.numberSend" min="0" max="1000" placeholder="Count stars you send">
+            </label>
+            <select ng-model="Exchange.selectNeed" class="item item-select select-exchange">
+                <option value="0" selected="selected">Выберите что-нибудь</option>
+                <option value="1">Спортмастер</option>
+                <option value="2">Дикси</option>
+                <option value="3">Лента</option>
+                <option value="4">Рив Гош</option>
+                <option value="5">Мега Дилдо</option>
+                            </select>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Count stars you need</span>
+                <input type="number" ng-model="Exchange.numberNeed" min="0" max="1000" placeholder="Count stars you need">
+            </label>
+            <button class="button button-full button-positive" ng-click="sendExchange(Exchange)">
+                Зарядить
+            </button>
+        </div>
+    </ion-content>
+</ion-view>

@@ -4,10 +4,10 @@ angular.module('starter.services', [])
     }])
     .factory('swipeMenu', ['$ionicSideMenuDelegate', function ($ionicSideMenuDelegate) {
         return {
-            swipeLeft: function(){
+            swipeLeft: function () {
                 $ionicSideMenuDelegate.toggleLeft();
             },
-            swipeRight: function(){
+            swipeRight: function () {
                 $ionicSideMenuDelegate.toggleRight();
             }
         }
@@ -34,11 +34,33 @@ angular.module('starter.services', [])
             }
         }
     }])
-    .factory("Items", function($firebaseArray) {
+    .factory("Items", function ($firebaseArray) {
         var itemsRef = new Firebase("https://status873854.firebaseio.com/items");
         return $firebaseArray(itemsRef);
     })
+    .factory("nameMagazine", function () {
+        return {
+            get: function (id) {
+                var name = '';
+                var magazine = [
+                    {id: 1, name: 'Спортмастер'},
+                    {id: 2, name: 'Дикси'},
+                    {id: 3, name: 'Лента'},
+                    {id: 4, name: 'Рив Гош'},
+                    {id: 5, name: 'Meга Дилдо'}];
 
-    .service('BlankService', [function () {
+                for (var i = 0; i < magazine.length; i++) {
+                    if (magazine[i].id == id) {
+                        name = magazine[i].name;
+                        break;
+                    }
+                }
+                return name;
+            }
+        }
+})
 
-    }]);
+.
+service('BlankService', [function () {
+
+}]);

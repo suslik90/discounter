@@ -163,14 +163,16 @@
     padding: 0 10px 10px 10px;
 }
 .wrapTextarea{
-    width:90%;
+    width:80%;
 }
-.wrapAddMessage{
+.wrapAddMessage, .wrapExchangeMessage{
     width:9.99%;
     height: 35px;
     text-align: right;
     font-size: 40px;
-
+}
+.wrapExchangeMessage{
+    text-align: left;
 }
 .bar-footer{
     height: 60px;
@@ -189,9 +191,15 @@
     margin-top: 10px;
 
 }
-
 .notMyMessage{
     margin-top: 10px;
     background-color: #C2E8C3;
     float: right;
+}
+.messageTextArea{
+    resize: none;
+    overflow-y: scroll;
+}
+.select-exchange{
+    width:100%;
 }

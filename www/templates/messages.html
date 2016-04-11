@@ -1,21 +1,27 @@
 <ion-view view-title="Messages">
-    <ion-content style="background-color: #e5e5e5;">
+    <ion-content style="background-color: #e5e5e5;" id="autoscroll">
         <h1>Messages</h1>
         <ion-list>
             <input type="hidden" ng-model="iduser">
-            <div class="message" ng-repeat="item in items">
-                <div class="messageText" ng-class="({{item.from}} == iduser) ? 'myMessage' : 'notMyMessage'">
+            <div class="message" ng-repeat="item in items" repeat-end="onEnd(item)">
+                <div class="messageText" ng-class="({{item.from}} == iduser) ? 'notMyMessage' : 'myMessage'">
                     {{item.text}}
                 </div>
             </div>
+            <div style="width:100%; height: 60px;float:left"></div>
         </ion-list>
+
     </ion-content>
 </ion-view>
 <ion-footer-bar>
     <div class="wrapFormMessage">
+        <div class="wrapExchangeMessage">
+            <i class="ion-ios-copy-outline" ng-click="goToExchange()">
+            </i>
+        </div>
         <div class="wrapTextarea">
             <label class="item item-input">
-                <textarea ng-model="message" placeholder="messange"></textarea>
+                <textarea class="messageTextArea" ng-model="message" placeholder="messange"></textarea>
             </label>
         </div>
         <div class="wrapAddMessage">
@@ -23,4 +29,5 @@
             </i>
         </div>
     </div>
+
 </ion-footer-bar>

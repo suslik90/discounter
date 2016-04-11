@@ -3,7 +3,7 @@ angular.module('starter.routes', [])
         $stateProvider
             .state('app', {
                 url: '/app',
-                abstract: true,
+
                 templateUrl: 'templates/menu.html',
                 controller: 'appCtrl'
             })
@@ -104,6 +104,15 @@ angular.module('starter.routes', [])
                     'menuContent': {
                         templateUrl: 'templates/login.html',
                         controller: 'loginCtrl'
+                    }
+                }
+            })
+            .state('app.exchange', {
+                url: '/exchange',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/exchange.html',
+                        controller: 'exchangeCtrl'
                     }
                 }
             })

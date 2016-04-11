@@ -1,7 +1,9 @@
 angular.module('starter.controllers', [])
 
-    .controller('backCtrl', function ($scope, $ionicHistory) {
-        $scope.goBack = function () {
+    .controller('myBackCtrl', function ($scope, $ionicHistory) {
+        $scope.mygoBack = function () {
+            alert(1);
+            console.log($ionicHistory);
             $ionicHistory.goBack();
         };
     })
@@ -17,6 +19,7 @@ angular.module('starter.controllers', [])
               });
 
               $localstorage.set("id", 1);
+              $localstorage.set("name", "mike");
               $state.go("app.profile");
           }else if(username == "ron"){
               $ionicHistory.nextViewOptions({
@@ -24,13 +27,12 @@ angular.module('starter.controllers', [])
               });
 
               $localstorage.set("id", 2);
+              $localstorage.set("name", "ron");
               $state.go("app.profile");
           }else{
               $scope.invalidAuthForm = true;
           }
 
-
-          //console.log(username);
       }
         $scope.hideInvalidBlock = function(){
             $scope.invalidAuthForm = false;
@@ -67,36 +69,84 @@ angular.module('starter.controllers', [])
         }
 
     })
-    .controller('messagesCtrl', function ($scope, $localstorage, Items, $timeout) {
+    .controller('messagesCtrl', function ($scope, $state, $localstorage, Items, $timeout, $ionicScrollDelegate, $ionicPopup) {
+
+        $scope.showAlert = function(message) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Результаты обмена',
+                template: message
+            });
+
+            alertPopup.then(function(res) {
+
+            });
+        };
+
+        $scope.showConfirm = function() {
+            var confirmPopup = $ionicPopup.confirm({
+                title: 'Вам предложен обмен!',
+                template: 'Вы согласны с предложением? Тогда жмем ОК, либо Cancel чтобы отклонить'
+            });
+
+            confirmPopup.then(function(res) {
+                var message;
+                if(res) {
+                    message = "Обмен состоялся!";
+                } else {
+                    message = "Обмен не состоялся =(";
+                }
+                $scope.showAlert(message);
+            });
+        };
 
         $scope.iduser = $localstorage.get("id");
-        console.log($scope.iduser);
         $scope.addItem = function() {
             var text = $scope.message;
             var user = $localstorage.get("id");
             if (text) {
                 $scope.items.$add({
                     "from": user,
-                    "text": text
+                    "text": text,
+                    "type": 0
                 });
             }
             $scope.message="";
+            $ionicScrollDelegate.scrollBottom();
         };
 
         $scope.getItems = function(){
             $scope.items = Items;
+            $ionicScrollDelegate.scrollBottom();
+        }
+        $scope.goToExchange = function(){
+            $state.go('app.exchange');
         }
 
         $scope.getItems();
+        //$timeout(function(){
+        //    $ionicScrollDelegate.scrollBottom();
+        //},900);
+        //$scope.$on('$ionicView.afterEnter', function(){
+        //    $timeout(function(){
+        //        console.log("before scrollBottom");
+        //        $ionicScrollDelegate.scrollBottom();
+        //    },900);//832
+        //});
+        $scope.onEnd = function(item){
+            $timeout(function(){
+                if(item.type == 1 && Number(item.from) != $localstorage.get('id')){
+                    $scope.showConfirm();
+                }
+                $ionicScrollDelegate.scrollBottom();
+
+            }, 1);
+        };
 
         $timeout(function(Items){
             $scope.getItems();
-        }, 1000);
+        }, 1000, true);
     })
-    .controller('RoomsCtrl', function ($scope, Rooms) {
-        console.log("Rooms Controller initialized");
-        $scope.rooms = Rooms.all();
-    })
+
     .controller('groupsCtrl', function ($scope, $state, $ionicScrollDelegate) {
         $ionicScrollDelegate.scrollTop();
         $scope.$on('$ionicView.beforeEnter', function(){
@@ -218,5 +268,29 @@ angular.module('starter.controllers', [])
             }
         //});
 
+    })
+    .controller('exchangeCtrl', function ($scope, $state, $localstorage, Items, $timeout, nameMagazine) {
+        $scope.items = Items;
+
+        $scope.sendExchange = function(exchange){
+            var nameSender = $localstorage.get('name');
+            var nameRecepient = ($localstorage.get('id') == 1)? 'mike' : 'ron';
+            var nameMagSender = nameMagazine.get(exchange.selectSend);
+            var nameMagRecepient = nameMagazine.get(exchange.selectNeed);
+            var text = "Пользователь "+nameSender+" предлагает вам совершить обмен. ";
+            text+=" Предложение: " +exchange.numberSend + " звезд из " +nameMagSender;
+            text+=" в обмен на " +exchange.numberNeed + " из " +nameMagRecepient+" .";
+            var user = $localstorage.get("id");
+            if (text) {
+                $scope.items.$add({
+                    "from": user,
+                    "text": text,
+                    "type": 1
+                });
+            }
+
+            $state.go('app.messages');
+
+        }
     })
 ;
