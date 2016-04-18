@@ -2,9 +2,7 @@ angular.module('starter.controllers', [])
 
     .controller('myBackCtrl', function ($scope, $ionicHistory) {
         $scope.mygoBack = function () {
-            alert(1);
-            console.log($ionicHistory);
-            $ionicHistory.goBack();
+                 $ionicHistory.goBack();
         };
     })
     .controller('appCtrl', function ($scope, $ionicModal, $timeout) {
@@ -12,6 +10,7 @@ angular.module('starter.controllers', [])
     })
     .controller('loginCtrl', function ($scope, $localstorage, $state, $ionicHistory,$ionicModal, $timeout) {
       $scope.signIn = function(username){
+
           if(username == "mike"){
 
               $ionicHistory.nextViewOptions({
@@ -37,6 +36,16 @@ angular.module('starter.controllers', [])
         $scope.hideInvalidBlock = function(){
             $scope.invalidAuthForm = false;
         }
+        $scope.changedUser = function(user){
+            var indx = user.index;
+            $scope.user.name = $scope.users[indx];
+            $scope.hideInvalidBlock();
+        }
+
+        $scope.users=["jimmy","mike","ron"];
+        $scope.user = {};
+        $scope.user.index = 1;
+        $scope.user.name = $scope.users[$scope.user.index];
     })
     .controller('feedCtrl', function ($scope) {
     })
@@ -90,11 +99,19 @@ angular.module('starter.controllers', [])
 
             confirmPopup.then(function(res) {
                 var message;
+                var i = $scope.activeOffer;
+                var f = new Firebase("https://status873854.firebaseio.com/items/"+ i.$id);
+
+                console.log();
                 if(res) {
+                    f.child("statusOffer").set(200);
                     message = "Обмен состоялся!";
                 } else {
+                    f.child("statusOffer").set(500);
                     message = "Обмен не состоялся =(";
                 }
+                console.log(Items);
+                $scope.items = Items;
                 $scope.showAlert(message);
             });
         };
@@ -107,7 +124,8 @@ angular.module('starter.controllers', [])
                 $scope.items.$add({
                     "from": user,
                     "text": text,
-                    "type": 0
+                    "type": 0,
+                    "statusOffer":0
                 });
             }
             $scope.message="";
@@ -134,6 +152,7 @@ angular.module('starter.controllers', [])
         //});
         $scope.onEnd = function(item){
             $timeout(function(){
+                $scope.activeOffer = item;
                 if(item.type == 1 && Number(item.from) != $localstorage.get('id')){
                     $scope.showConfirm();
                 }
@@ -292,5 +311,10 @@ angular.module('starter.controllers', [])
             $state.go('app.messages');
 
         }
+    })
+    .controller('exitCtrl', function ($scope, $state, $ionicHistory) {
+        $ionicHistory.clearHistory();
+        $ionicHistory.clearCache();
+        $state.go('login');
     })
 ;

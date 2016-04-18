@@ -98,15 +98,23 @@ angular.module('starter.routes', [])
                     }
                 }
             })
-            .state('app.login', {
+            .state('login', {
                 url: '/login',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/login.html',
-                        controller: 'loginCtrl'
-                    }
-                }
+                templateUrl: 'templates/login.html',
+                controller: 'loginCtrl'
+                //views: {
+                //    'menuContent': {
+                //        templateUrl: 'templates/login.html',
+                //        controller: 'loginCtrl'
+                //    }
+                //}
             })
+            .state('exit', {
+                url: '/exit',
+                templateUrl: 'templates/exit.html',
+                controller: 'exitCtrl'
+            })
+
             .state('app.exchange', {
                 url: '/exchange',
                 views: {
@@ -119,5 +127,5 @@ angular.module('starter.routes', [])
         ;
         // if none of the above states are matched, use this as the fallback
         //$urlRouterProvider.otherwise('/app/messages');
-       $urlRouterProvider.otherwise('/app/login');
+       $urlRouterProvider.otherwise('/login');
     });

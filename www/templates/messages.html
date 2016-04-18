@@ -6,6 +6,8 @@
             <div class="message" ng-repeat="item in items" repeat-end="onEnd(item)">
                 <div class="messageText" ng-class="({{item.from}} == iduser) ? 'notMyMessage' : 'myMessage'">
                     {{item.text}}
+                    <!--<div ng-show="({{item.type}} == 1) ? true : false" ng-class="({{item.from}} == iduser) ? (({{item.statusOffer}} == 200) ? 'circle circle-left circle-success': 'circle circle-left circle-unsuccess' ): (({{item.statusOffer}} == 200) ? 'circle circle-right circle-success': 'circle circle-right circle-unsuccess' )"></div>-->
+                    <div ng-show="({{item.type}} == 1) ? true : false" ng-class="({{item.from}} == iduser) ? ({{item.statusOffer}} == 200) ? 'circle circle-left circle-success' : 'circle circle-left circle-unsuccess' : ({{item.statusOffer}} == 200) ? 'circle circle-right circle-success' : 'circle circle-right circle-unsuccess'"></div>
                 </div>
             </div>
             <div style="width:100%; height: 60px;float:left"></div>

@@ -150,7 +150,7 @@
 /*****************/
 
 .authWrap{
-    margin-top: 20px;
+    margin-top: 83%;
 }
 .invalid{
     padding:5px;
@@ -183,7 +183,8 @@
 .messageText{
     width:65%;
     padding:5px;
-    border-radius:3px
+    border-radius:3px;
+    position:relative;
 }
 .myMessage{
     background-color: white;
@@ -202,4 +203,35 @@
 }
 .select-exchange{
     width:100%;
+}
+.select-login{
+    width:100%;
+    background: inherit;
+    color: aqua;
+    border: 0;
+}
+.circle{
+    width:4px;
+    height:4px;
+    border: 1px solid white;
+    border-radius:2px;
+    position:absolute;
+    bottom:0;
+
+}
+.circle-left{
+    left:0;
+}
+.circle-right{
+    right:0;
+}
+.circle-success{
+    background-color: green;
+}
+.circle-unsuccess{
+    background-color: red;
+}
+.dynamic_background{
+    background: url("../img/back.gif");
+    background-size: contain;
 }

@@ -1,13 +1,19 @@
-<ion-view title="Login">
+<ion-view hide-nav-bar="true">
 
-  <ion-content>
+  <ion-content class="dynamic_background" scroll="false">
     <div class="authWrap">
-    <form name="authForm" ng-submit="signIn(username)">
+    <form name="authForm" ng-submit="signIn(user.name)">
       <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input ng-focus="hideInvalidBlock()" type="text" ng-model="username">
-        </label>
+        <!--<label class="item item-input">-->
+          <!--<span class="input-label">Username</span>-->
+          <!--<input ng-focus="hideInvalidBlock()" type="text" ng-model="username">-->
+
+        <!--</label>-->
+          <select ng-change="changedUser(user)"
+                  class="item item-select select-login"
+                  ng-model="user.index"
+                  ng-options="users.indexOf(user) as user for user in users">
+        </select>
         <div class="invalid" ng-show="invalidAuthForm">Incorrect login</div>
           <button class="button button-positive button-full" type="submit">Log in</button>
       </div>

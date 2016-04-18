@@ -15,15 +15,21 @@ angular.module('starter', ['ionic','ionic.service.core', "firebase",'starter.con
                 cordova.plugins.Keyboard.disableScroll(true);
 
             }
-            //if (window.StatusBar) {
-            //  // org.apache.cordova.statusbar required
-            //  StatusBar.styleDefault();
-            //}
-            if (ionic.Platform.isAndroid()) {
-                StatusBar.backgroundColorByHexString("#f8f8f8");
-            } else {
-                StatusBar.styleLightContent();
+            if (window.StatusBar) {
+              // org.apache.cordova.statusbar required
+              //StatusBar.styleDefault();
+                StatusBar.overlaysWebView( true );
+                //StatusBar.backgroundColorByHexString('#209dc2');
+                StatusBar.styleBlackTranslucent();
             }
+
+            ionic.Platform.fullScreen(true,true);
+            //ionic.Platform.showStatusBar(true);
+            //if (ionic.Platform.isAndroid()) {
+            //    StatusBar.backgroundColorByHexString("#f8f8f8");
+            //} else {
+            //    StatusBar.styleLightContent();
+            //}
             //setTimeout(function(){
             //  navigator.splashscreen.hide();
             //},100);
