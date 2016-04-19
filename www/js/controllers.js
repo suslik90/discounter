@@ -188,7 +188,11 @@ angular.module('starter.controllers', [])
         }
         });
     })
-    .controller('bookmarkCtrl', function ($scope, $stateParams) {
+    //.controller('bookmarkCtrl', function ($scope, $stateParams) {
+    //})
+    .controller('rewardsCtrl', function ($scope, $stateParams) {
+    })
+    .controller('friendsCtrl', function ($scope, $stateParams) {
     })
     .controller('settingsCtrl', function ($scope) {
     })
@@ -312,9 +316,10 @@ angular.module('starter.controllers', [])
 
         }
     })
-    .controller('exitCtrl', function ($scope, $state, $ionicHistory) {
-        $ionicHistory.clearHistory();
-        $ionicHistory.clearCache();
+    .controller('exitCtrl', function ($scope, $state, $ionicHistory, $localstorage) {
+
+        $localstorage.clear();
+        console.log($localstorage);
         $state.go('login');
     })
 ;

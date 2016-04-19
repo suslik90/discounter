@@ -13,36 +13,38 @@
     </ion-side-menu-content>
 
     <ion-side-menu side="left">
-        <ion-header-bar class="bar-stable">
-            <h1 class="title">Menu</h1>
-        </ion-header-bar>
-        <ion-content>
+        <!--<ion-header-bar class="bar-stable">-->
+            <!--<h1 class="title">Меню, Юзверь!</h1>-->
+        <!--</ion-header-bar>-->
+
+        <ion-content class="menu-background">
             <ion-list>
-                <ion-item menu-close href="#/app/feed">
-                    <div class="item-menu">
-                        <div class="icon-item-menu-wrap">
-                            <i class="icon ion-ios-paper-outline"></i>
-                        </div>
-                        <div class="icon-item-text-wrap">
-                            Feed
-                        </div>
-                    </div>
-                </ion-item>
-                <ion-item menu-close href="#/app/search">
-                    <div class="icon-item-menu-wrap">
-                        <i class="icon ion-ios-search"></i>
-                    </div>
-                    <div class="icon-item-text-wrap">
-                        Search
-                    </div>
-                    </div>
-                </ion-item>
+                <div class="head-menu">
+                </div>
+                <!--<ion-item menu-close href="#/app/search">-->
+                    <!--<div class="icon-item-menu-wrap">-->
+                        <!--<i class="icon ion-ios-search"></i>-->
+                    <!--</div>-->
+                    <!--<div class="icon-item-text-wrap">-->
+                        <!--Search-->
+                    <!--</div>-->
+                    <!--</div>-->
+                <!--</ion-item>-->
                 <ion-item menu-close href="#/app/profile">
                     <div class="icon-item-menu-wrap">
                         <i class="icon ion-ios-person-outline"></i>
                     </div>
                     <div class="icon-item-text-wrap">
-                        Profile
+                        Профиль
+                    </div>
+                    </div>
+                </ion-item>
+                <ion-item menu-close href="#/app/friends">
+                    <div class="icon-item-menu-wrap">
+                        <i class="icon ion-ios-people-outline"></i>
+                    </div>
+                    <div class="icon-item-text-wrap">
+                        Друзья
                     </div>
                     </div>
                 </ion-item>
@@ -51,26 +53,45 @@
                         <i class="icon ion-ios-email-outline"></i>
                     </div>
                     <div class="icon-item-text-wrap">
-                        Message
+                        Сообщения
                     </div>
                     </div>
                 </ion-item>
-                <ion-item menu-close href="#/app/groups">
+                <!--<ion-item menu-close href="#/app/groups">-->
+                    <!--<div class="icon-item-menu-wrap">-->
+                        <!--<i class="icon ion-ios-people-outline"></i>-->
+                    <!--</div>-->
+                    <!--<div class="icon-item-text-wrap">-->
+                        <!--Groups-->
+                    <!--</div>-->
+                    <!--</div>-->
+                <!--</ion-item>-->
+                <!--<ion-item menu-close href="#/app/bookmark">-->
+                    <!--<div class="icon-item-menu-wrap">-->
+                        <!--<i class="icon ion-ios-bookmarks-outline"></i>-->
+                    <!--</div>-->
+                    <!--<div class="icon-item-text-wrap">-->
+                        <!--Bookmark-->
+                    <!--</div>-->
+                    <!--</div>-->
+                <!--</ion-item>-->
+                <ion-item menu-close href="#/app/rewards">
                     <div class="icon-item-menu-wrap">
-                        <i class="icon ion-ios-people-outline"></i>
+                        <i class="icon ion-ios-pricetags-outline"></i>
                     </div>
                     <div class="icon-item-text-wrap">
-                        Groups
+                        Реварды
                     </div>
                     </div>
                 </ion-item>
-                <ion-item menu-close href="#/app/bookmark">
-                    <div class="icon-item-menu-wrap">
-                        <i class="icon ion-ios-bookmarks-outline"></i>
-                    </div>
-                    <div class="icon-item-text-wrap">
-                        Bookmark
-                    </div>
+                <ion-item menu-close href="#/app/feed">
+                    <div class="item-menu">
+                        <div class="icon-item-menu-wrap">
+                            <i class="icon ion-ios-paper-outline"></i>
+                        </div>
+                        <div class="icon-item-text-wrap">
+                            Новости
+                        </div>
                     </div>
                 </ion-item>
                 <ion-item menu-close href="#/app/settings">
@@ -78,16 +99,16 @@
                         <i class="icon ion-ios-gear-outline"></i>
                     </div>
                     <div class="icon-item-text-wrap">
-                        Settings
+                        Настройки
                     </div>
                     </div>
                 </ion-item>
-                <ion-item menu-close href="#/app/exit">
+                <ion-item menu-close href="#/exit">
                     <div class="icon-item-menu-wrap">
                         <i class="icon ion-ios-undo-outline"></i>
                     </div>
                     <div class="icon-item-text-wrap">
-                        Exit
+                        Выход
                     </div>
                     </div>
                 </ion-item>

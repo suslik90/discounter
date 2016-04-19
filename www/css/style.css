@@ -235,3 +235,14 @@
     background: url("../img/back.gif");
     background-size: contain;
 }
+.head-menu{
+    height: 175px;
+    width: 100%;
+}
+.menu-background .item{
+    border:none;
+}
+.menu-background, .head-menu, .menu-background a.item-content{
+    background-color: #A09C9C;
+    color:#F1FCFF;
+}

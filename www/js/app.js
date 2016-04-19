@@ -33,9 +33,7 @@ angular.module('starter', ['ionic','ionic.service.core', "firebase",'starter.con
             //setTimeout(function(){
             //  navigator.splashscreen.hide();
             //},100);
-            $timeout(function () {
-                navigator.splashscreen.hide();
-            }, 500);
+
 
             $ionicPlatform.ready(function() {
                 var push = new Ionic.Push({
@@ -43,7 +41,6 @@ angular.module('starter', ['ionic','ionic.service.core', "firebase",'starter.con
                 });
 
                 push.register(function(token) {
-                    console.log("Device token:",token.token);
                     push.saveToken(token);  // persist the token in the Ionic Platform
                 });
             });

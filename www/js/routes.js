@@ -111,7 +111,7 @@ angular.module('starter.routes', [])
             })
             .state('exit', {
                 url: '/exit',
-                templateUrl: 'templates/exit.html',
+                //templateUrl: 'templates/exit.html',
                 controller: 'exitCtrl'
             })
 
@@ -121,6 +121,24 @@ angular.module('starter.routes', [])
                     'menuContent': {
                         templateUrl: 'templates/exchange.html',
                         controller: 'exchangeCtrl'
+                    }
+                }
+            })
+            .state('app.rewards', {
+                url: '/rewards',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/rewards.html',
+                        controller: 'rewardsCtrl'
+                    }
+                }
+            })
+            .state('app.friends', {
+                url: '/friends',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/friends.html',
+                        controller: 'friendsCtrl'
                     }
                 }
             })
