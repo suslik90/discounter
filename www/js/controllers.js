@@ -5,6 +5,13 @@ angular.module('starter.controllers', [])
                  $ionicHistory.goBack();
         };
     })
+    .controller('menuCtrl', function ($scope, $state, $localstorage) {
+        $scope.exitAccount = function(){
+            $localstorage.clear();
+            $state.go('login');
+        }
+
+    })
     .controller('appCtrl', function ($scope, $ionicModal, $timeout) {
 
     })
@@ -192,7 +199,23 @@ angular.module('starter.controllers', [])
     //})
     .controller('rewardsCtrl', function ($scope, $stateParams) {
     })
-    .controller('friendsCtrl', function ($scope, $stateParams) {
+    .controller('friendsCtrl', function ($scope, $stateParams, $cordovaContacts, $ionicPlatform) {
+        var opts = {
+            multiple: true,
+            fields:  [ 'displayName', 'name' ]
+        };
+
+        if (ionic.Platform.isAndroid()) {
+            opts.hasPhoneNumber = true;
+        }
+
+        $ionicPlatform.ready(function(){
+            $cordovaContacts.find(opts)
+                .then(function(allContacts){
+                    $scope.contacts = allContacts;
+                    console.log(allContacts);// Do yo thang with all the contacts!
+                });
+        });
     })
     .controller('settingsCtrl', function ($scope) {
     })

@@ -1,4 +1,11 @@
 {
   "name": "status",
-  "app_id": ""
+  "app_id": "02159d7b",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ]
 }

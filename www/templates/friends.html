@@ -1,5 +1,22 @@
 <ion-view view-title="Ionic">
     <ion-content overflow-scroll="true" padding="true">
-        <h1>Ionic</h1>
+        <ion-list>
+            <!---->
+            <div collection-repeat="contact in contacts | orderBy:'displayName'">
+                <ion-item class="item item-avatar item-thumbnail-left">
+                    <img ng-src='{{contact.photos[0].value}}' ng-if="contact.photos.length > 0"/>
+                    <h2>{{contact.displayName}}</h2>
+                       <div ng-if="contact.phoneNumbers.length > 0"  class="numberPhone">{{ contact.phoneNumbers[0].type}}: {{ contact.phoneNumbers[0].value}}</div>
+                    <ion-option-button class="button-positive"
+                                       ng-click="share(item)">
+                        Share
+                    </ion-option-button>
+                    <ion-option-button class="button-assertive"
+                                       ng-click="edit(item)">
+                        Edit
+                    </ion-option-button>
+                </ion-item>
+            </div>
+        </ion-list>
     </ion-content>
 </ion-view>

@@ -4,9 +4,17 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic','ionic.service.core', "firebase",'starter.controllers', 'starter.routes', 'starter.services', 'starter.directives'])
+angular.module('starter', ['ionic',
+                           'ionic.service.core',
+                           'firebase',
+                           'ngCordova',
+                           'ionMDRipple',
+                           'starter.controllers',
+                           'starter.routes',
+                           'starter.services',
+                           'starter.directives'])
 
-    .run(function ($ionicPlatform, $timeout) {
+    .run(function ($ionicPlatform, $cordovaStatusbar, $timeout) {
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -18,9 +26,13 @@ angular.module('starter', ['ionic','ionic.service.core', "firebase",'starter.con
             if (window.StatusBar) {
               // org.apache.cordova.statusbar required
               //StatusBar.styleDefault();
-                StatusBar.overlaysWebView( true );
+                //StatusBar.overlaysWebView( true );
                 //StatusBar.backgroundColorByHexString('#209dc2');
-                StatusBar.styleBlackTranslucent();
+                //StatusBar.styleBlackTranslucent();
+                $cordovaStatusbar.overlaysWebView(true);
+
+                // styles: Default : 0, LightContent: 1, BlackTranslucent: 2, BlackOpaque: 3
+                $cordovaStatusbar.style(2);
             }
 
             ionic.Platform.fullScreen(true,true);
