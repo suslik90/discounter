@@ -4,15 +4,17 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic',
-                           'ionic.service.core',
+angular.module('starter', ['ionic','ionic.service.core',
+
                            'firebase',
                            'ngCordova',
+    'ngSanitize',
                            'ionMDRipple',
                            'starter.controllers',
                            'starter.routes',
                            'starter.services',
-                           'starter.directives'])
+                           'starter.directives',
+    'angular-svg-round-progressbar'])
 
     .run(function ($ionicPlatform, $cordovaStatusbar, $timeout) {
         $ionicPlatform.ready(function () {

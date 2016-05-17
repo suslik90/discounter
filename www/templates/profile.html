@@ -1,84 +1,77 @@
 <ion-view view-title="Profile">
-    <ion-content overflow-scroll="true" padding="true">
-        <div class="list card">
-            <div class="profile-userinfo">
-                <div class="profile-userinfo-photo-wrap">
-                    <div class="profile-userinfo-photo">
-                        <img width="100%" src="http://media.kg-portal.ru/images/avatar/avatar_30.jpg">
-                    </div>
-                    <div class="state-friendship">You
-                        <!--<div ng-show="friendshipText">You are friends</div>
-                        <button ng-show="friendshipButton" ng-click="addToFriend()"
-                                class="button button-small button-outline button-positive friendship-add">Add
-                        </button>-->
-                    </div>
+    <ion-content overflow-scroll="true">
+
+        <div class="segment">
+            <div class="segment-header background-positive">Продукты</div>
+            <select class="item item-select select-long">
+                <option ng-repeat="brand in brands"
+                        ng-value="{{brand.id}}"
+                        nd-selected="$index == 1">{{brand.name}}
+                </option>
+            </select>
+
+            <div class="segment-progress-wrap">
+
+                <div class="circle-step1">
+
+                    <div class="number-circle">1</div>
+
                 </div>
-                <div class="profile-userinfo-name-wrap">
-                    <div class="profile-userinfo-name">
-                        Скоробогатов Вениамин
-                    </div>
-                    <div class="profile-userinfo-menu">
-                        <div class="userinfo">
-                            <div class="userinfo-menu-icon-wrap">
-                                <i class="icon ion-ios-information-outline"></i>
-                            </div>
-                            <div class="userinfo-menu-text-wrap">
-                                Info
-                            </div>
-                        </div>
-                        <div class="followers">
-                            <div class="userinfo-menu-icon-wrap">
-                                <i class="icon ion-social-rss-outline"></i>
-                            </div>
-                            <div class="userinfo-menu-text-wrap">
-                                Followers
-                            </div>
-                        </div>
-                        <div class="points">
-                            <div class="userinfo-menu-icon-wrap">
-                                <i class="icon ion-ribbon-b"></i>
-                            </div>
-                            <div class="userinfo-menu-text-wrap">
-                                Points
-                            </div>
-                        </div>
-                        <div class="stars" ui-sref="app.mystars">
-                            <div class="userinfo-menu-icon-wrap">
-                                <i class="icon ion-ios-star-outline"></i>
-                            </div>
-                            <div class="userinfo-menu-text-wrap">
-                                Stars
-                            </div>
-                        </div>
-                        <div class="programms">
-                            <div class="userinfo-menu-icon-wrap">
-                                <i class="icon ion-ios-pricetags-outline"></i>
-                            </div>
-                            <div class="userinfo-menu-text-wrap">
-                                Programms
-                            </div>
-                        </div>
-                    </div>
+                <div class="circle-bridge">
+                    <div class="circle-bridge-color"></div>
+                </div>
+                <div class="circle-step2">
+                    <div class="number-circle">2</div>
+                </div>
+                <div class="circle-bridge">
+                    <div class="circle-bridge-color"></div>
+                </div>
+                <div class="circle-step3">
+                    <div class="number-circle">3</div>
+                </div>
+                <div class="circle-bridge">
+                    <div class="circle-bridge-color"></div>
+                </div>
+                <div class="circle-step4">
+                    <div class="number-circle">4</div>
+                </div>
+                <div class="circle-bridge">
+                    <div class="circle-bridge-color"></div>
+                </div>
+                <div class="circle-step5">
+                    <div class="number-circle">5</div>
                 </div>
             </div>
+            <div class="progress" ng-model="Chart.progress" ng-bind-html="progressLabel"></div>
+            <div
+                    round-progress
+                    max="100"
+                    current="Chart.progress"
+                    color="#45ccce"
+                    bgcolor="#eaeaea"
+                    radius="100"
+                    stroke="15"
+                    semi="false"
+                    rounded="false"
+                    clockwise="true"
+                    responsive="false"
+                    duration="800"
+                    animation="easeInOutQuart"
+                    animation-delay="5"></div>
+            <!--<div class="item range">-->
+
+                <!--<input type="range" name="volume" ng-model="progressPercent" ng-change="progress = {width: progressPercent+'%'}">-->
+
+            <!--</div>-->
+            <!--<div style="display: flex">-->
+            <!--<div class="wrap-line-progress">-->
+                <!--<div class="line-progress" ng-style="progress"></div>-->
+             <!--</div>-->
+            <!--<div class="count-percent-line-progress">{{progressPercent}} %</div>-->
+            <!--</div>-->
+
+
         </div>
-        <div class="head-profile-wall">
-        <div class="head-profile-wall-text">Your Wall</div>
-        </div>
-        <div class="profile-wall">
-            <!--<div class="row responsive-md">
-                <div class="col">-->
-                    <div class="list card" ng-repeat="offer in profileWall">
-                        <div class="item item-image">
-                            <img ng-src='{{offer.url_img}}'/>
-                        </div>
-                        <a class="item item-icon-left {{offer.color}}" href="#">
-                            <i class="icon ion-ios-paw-outline"></i>
-                            {{offer.text}}
-                        </a>
-                    </div>
-                </div>
-            <!--</div>
-        </div>-->
+
     </ion-content>
 </ion-view>

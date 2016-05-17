@@ -1,5 +1,26 @@
-<ion-view view-title="Ionic">
-    <ion-content overflow-scroll="true" padding="true">
-        <h1>Ionic</h1>
+<ion-view view-title="Rewards">
+    <div class="bar bar-subheader progress-bar">
+    <div class="progress-subheader" ng-style='{backgroundColor: item.class, width:item.width+"%"}'></div>
+    </div>
+    <ion-content padding="true">
+        <div style="width: 100%;height: 40px;">
+
+        </div>
+        <div class="card" ng-repeat="reward in rewards">
+            <div class="item item-divider">
+                {{reward.name}}
+            </div>
+            <div class="stars-rating" ng-click="toogleRating({{reward.id}}, {{reward.percent.progress}})"><i
+                    ng-class="{'ion-ios-star': showDetails({{reward.id}}), 'ion-ios-star-outline': !showDetails({{reward.id}})}"></i> </div>
+            <!--<div class="stars-rating"><i ng-class="({{reward.using}} == true) ? 'ion-ios-star' : 'ion-ios-star-outline'"></i> </div>-->
+            <!--<div class="stars-rating" ng-click="toogleRating({{reward.id}})" ng-show="!{{reward.using}}" ng-hide="{{reward.using}}"><i class="ion-ios-star-outline"></i> </div>-->
+            <div class="item item-image">
+                <img ng-src="{{reward.img}}"/>
+            </div>
+            <div class="progress-percent {{reward.percent.color}}">{{reward.percent.progress}} %</div>
+            <div class="item item-divider progress-reward">
+                <div class="progress-line" ng-style="{'width':reward.percent.progress+'%', 'backgroundColor':reward.color_line}"></div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

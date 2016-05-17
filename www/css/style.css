@@ -15,6 +15,10 @@
     margin-left: 10px;
 }
 
+.has-header {
+    margin-top: 5px;
+}
+
 /**** PROFILE *****/
 .profile-userinfo {
     padding: 5px 5px 15px 5px;
@@ -82,11 +86,13 @@
 .card {
     margin-top: 0px;
 }
-.profile-wall{
+
+.profile-wall {
     margin-top: 10px;
 }
-.head-profile-wall{
-    width:100%;
+
+.head-profile-wall {
+    width: 100%;
     /*height: 30px;*/
     background-color: #F8F8F8;
     border-radius: 2px;
@@ -94,155 +100,367 @@
     -moz-box-shadow: 0px 0px 5px #999;
     -webkit-box-shadow: 0px 0px 5px #999;
 }
-.head-profile-wall-text{
+
+.head-profile-wall-text {
     width: 50%;
     margin: 0 auto;
-    padding:5px;
+    padding: 5px;
     text-align: center;
 }
+
 /*****************/
 
 /******GROUP******/
-.item-group{
+.item-group {
     display: inline-block;
     float: left;
-    width:80%;
-    border:1px solid red;
+    width: 80%;
+    border: 1px solid red;
 }
-.group-arrow{
+
+.group-arrow {
     float: right;
     margin-top: -31px;
 }
-.info-group-logo{
-    width:100%;
+
+.info-group-logo {
+    width: 100%;
     max-height: 250px;
 
     overflow: hidden;
 }
-.info-group-logo img{
-    width:100%;
+
+.info-group-logo img {
+    width: 100%;
 
 }
-.info-group-info{
+
+.info-group-info {
     height: 55px;
     margin-top: 5px;
 }
 
-.info-group-info-icon{
+.info-group-info-icon {
     float: left;
     display: inline-block;
     font-size: 20pt;
 }
-.info-wrap{
-    width:33.33%;
+
+.info-wrap {
+    width: 33.33%;
     float: left;
 }
-.info-group-info-count .text{
+
+.info-group-info-count .text {
     margin-left: 30px;
     margin-top: 5px;
 }
-.group-info-full{
+
+.group-info-full {
     margin-top: -15px;
 }
-.tab-item{
+
+.tab-item {
     max-width: 49.9%;
 }
+
 /*****************/
 
-.authWrap{
+.authWrap {
     margin-top: 83%;
 }
-.invalid{
-    padding:5px;
-    color:red;
+
+.invalid {
+    padding: 5px;
+    color: red;
     text-align: center;
 }
-.wrapFormMessage{
+
+.wrapFormMessage {
     display: inline-flex;
-    width:100%;
+    width: 100%;
     padding: 0 10px 10px 10px;
 }
-.wrapTextarea{
-    width:80%;
+
+.wrapTextarea {
+    width: 80%;
 }
-.wrapAddMessage, .wrapExchangeMessage{
-    width:9.99%;
+
+.wrapAddMessage, .wrapExchangeMessage {
+    width: 9.99%;
     height: 35px;
     text-align: right;
     font-size: 40px;
 }
-.wrapExchangeMessage{
+
+.wrapExchangeMessage {
     text-align: left;
 }
-.bar-footer{
+
+.bar-footer {
     height: 60px;
 }
-.message{
+
+/*.bar{*/
+/*box-shadow: 0 0 10px rgba(0,0,0,0.5);*/
+/*}*/
+
+.message {
     width: 100%;
 }
-.messageText{
-    width:65%;
-    padding:5px;
-    border-radius:3px;
-    position:relative;
+
+.messageText {
+    width: 65%;
+    padding: 5px;
+    border-radius: 3px;
+    position: relative;
 }
-.myMessage{
+
+.myMessage {
     background-color: white;
     float: left;
     margin-top: 10px;
 
 }
-.notMyMessage{
+
+.notMyMessage {
     margin-top: 10px;
     background-color: #C2E8C3;
     float: right;
 }
-.messageTextArea{
+
+.messageTextArea {
     resize: none;
     overflow-y: scroll;
 }
-.select-exchange{
-    width:100%;
+
+.select-exchange {
+    width: 100%;
 }
-.select-login{
-    width:100%;
+
+.select-login {
+    width: 100%;
     background: inherit;
     color: aqua;
     border: 0;
 }
-.circle{
-    width:4px;
-    height:4px;
+
+.circle {
+    width: 4px;
+    height: 4px;
     border: 1px solid white;
-    border-radius:2px;
-    position:absolute;
-    bottom:0;
+    border-radius: 2px;
+    position: absolute;
+    bottom: 0;
 
 }
-.circle-left{
-    left:0;
+
+.circle-left {
+    left: 0;
 }
-.circle-right{
-    right:0;
+
+.circle-right {
+    right: 0;
 }
-.circle-success{
+
+.circle-success {
     background-color: green;
 }
-.circle-unsuccess{
+
+.circle-unsuccess {
     background-color: red;
 }
-.dynamic_background{
+
+.dynamic_background {
     background: url("../img/back.gif");
     background-size: contain;
 }
-.head-menu{
+
+.head-menu {
     height: 175px;
     width: 100%;
 }
-.menu-background .item{
-    border:none;
+
+.menu-background .item {
+    border: none;
 }
-.menu-background, .head-menu, .menu-background a.item-content{
+
+.menu-background, .head-menu, .menu-background a.item-content {
     background-color: #A09C9C;
-    color:#F1FCFF;
+    /*background-image: url("../img/abstraccshiya.jpg");*/
+    color: #F1FCFF;
 }
+
+/* profile */
+.segment {
+
+}
+
+.segment-header {
+    height: 50px;
+    text-align: center;
+    padding-top: 12px;
+    font-size: 25px;
+    font-weight: 600;
+
+}
+
+.select-long {
+    width: 100%;
+    background: inherit;
+    border: 0;
+}
+
+.segment-progress-wrap {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+.circle-step1,
+.circle-step2,
+.circle-step3,
+.circle-step4,
+.circle-step5 {
+    border: 1px solid blueviolet;
+    width: 45px;
+    height: 45px;
+    border-radius: 25px;
+    float: left
+}
+
+.background-circle-step1 {
+    border: 1px solid blueviolet;
+    background-color: blueviolet;
+    width: 20%;
+    height: 45px;
+    border-radius: 25px;
+    float: left
+}
+
+.number-circle {
+    width: 45px;
+    height: 45px;
+    font-size: 25px;
+    margin: 9px 14px 0px;
+}
+
+.circle-bridge {
+    float: left;
+    width: 30px;
+    height: 45px;
+}
+
+.circle-bridge-color {
+    height: 10px;
+    width: 100%;
+    background-color: blueviolet;
+    border: 1px solid blueviolet;
+    margin-top: 17px;
+}
+
+.wrap-line-progress {
+    margin-top: 10px;
+    width: 70%;
+    height: 16px;
+}
+
+.line-progress {
+    height: 10px;
+    background-color: blueviolet;
+    transition: width 0.1s;
+    width: 0%;
+}
+
+progress::-webkit-progress-value {
+    background: blue;
+}
+
+.count-percent-line-progress {
+    width: 29%;
+    margin-top: 5px;
+    text-align: center;
+}
+
+/***********/
+.background-positive {
+    background-color: #387EF5;
+    color: white;
+}
+
+.background-balanced {
+    background-color: #33CD5F;
+}
+
+.background-royal {
+    background-color: #886AEA;
+}
+
+.progress {
+    position: absolute;
+    color: #bbb;
+    font-weight: 100;
+    line-height: 1;
+    top: 42%;
+    bottom: auto;
+    left: 28%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 35.7143px;
+}
+
+/***** rewards ******/
+.progress-bar {
+    padding: 0;
+    border: 0;
+    background-color: #f4f4f4;
+}
+
+.progress-reward {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.progress-line {
+    /*width: 60%;*/
+    height: 35px;
+    background-color: indigo;
+}
+
+.progress-percent {
+    width: 97px;
+    height: 24px;
+    background: transparent;
+    margin-top: -24px;
+    z-index: 2;
+    color: white;
+    position: absolute;
+    text-align: center;
+    font-size: 30px;
+}
+
+.stars-rating {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    position: absolute;
+    z-index: 3;
+    color: yellow;
+    margin-top: 21px;
+    margin-left: 31px;
+}
+
+.white {
+    color: white;
+}
+
+.black {
+    color: black;
+}
+
+.progress-subheader {
+    transition: width 0.3s
+}
+
+/*******************/
