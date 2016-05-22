@@ -1,0 +1,18 @@
+<ion-view view-title="Избранное">
+    <ion-content overflow-scroll="true" padding="true">
+        <div class="card rewards" ng-repeat="rewardFav in rewardsFavorites">
+            <!--<div class="item item-divider">-->
+            <!--{{reward.name}}-->
+            <!--</div>-->
+            <div class="stars-rating">Осталось {{rewardFav.time_to_end}}</div>
+            <div class="item item-image">
+                <img ng-src="{{rewardFav.img}}"/>
+            </div>
+            <div class="progress-percent {{rewardFav.category.color}}">{{rewardFav.category.text}}</div>
+            <div class="btn-remove-reward"><i class="ion-ios-minus-empty"></i></div>
+            <div class="item item-divider2">
+                {{rewardFav.name}}
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,77 +1,66 @@
-<ion-view view-title="Profile">
+<ion-view view-title="Профиль">
     <ion-content overflow-scroll="true">
-
-        <div class="segment">
-            <div class="segment-header background-positive">Продукты</div>
-            <select class="item item-select select-long">
-                <option ng-repeat="brand in brands"
-                        ng-value="{{brand.id}}"
-                        nd-selected="$index == 1">{{brand.name}}
-                </option>
-            </select>
-
-            <div class="segment-progress-wrap">
-
-                <div class="circle-step1">
-
-                    <div class="number-circle">1</div>
-
-                </div>
-                <div class="circle-bridge">
-                    <div class="circle-bridge-color"></div>
-                </div>
-                <div class="circle-step2">
-                    <div class="number-circle">2</div>
-                </div>
-                <div class="circle-bridge">
-                    <div class="circle-bridge-color"></div>
-                </div>
-                <div class="circle-step3">
-                    <div class="number-circle">3</div>
-                </div>
-                <div class="circle-bridge">
-                    <div class="circle-bridge-color"></div>
-                </div>
-                <div class="circle-step4">
-                    <div class="number-circle">4</div>
-                </div>
-                <div class="circle-bridge">
-                    <div class="circle-bridge-color"></div>
-                </div>
-                <div class="circle-step5">
-                    <div class="number-circle">5</div>
-                </div>
-            </div>
+        <div class="wrap-circle-chart">
             <div class="progress" ng-model="Chart.progress" ng-bind-html="progressLabel"></div>
             <div
                     round-progress
                     max="100"
                     current="Chart.progress"
-                    color="#45ccce"
-                    bgcolor="#eaeaea"
+                    color="#70C84E"
+                    bgcolor="#38475C"
                     radius="100"
-                    stroke="15"
+                    stroke="25"
                     semi="false"
-                    rounded="false"
+                    rounded="true"
                     clockwise="true"
                     responsive="false"
                     duration="800"
                     animation="easeInOutQuart"
                     animation-delay="5"></div>
-            <!--<div class="item range">-->
-
-                <!--<input type="range" name="volume" ng-model="progressPercent" ng-change="progress = {width: progressPercent+'%'}">-->
-
-            <!--</div>-->
-            <!--<div style="display: flex">-->
-            <!--<div class="wrap-line-progress">-->
-                <!--<div class="line-progress" ng-style="progress"></div>-->
-             <!--</div>-->
-            <!--<div class="count-percent-line-progress">{{progressPercent}} %</div>-->
-            <!--</div>-->
-
-
         </div>
+        <br/>
+        <div class="card profile-card" ng-repeat="profileRw in profileRewards">
+            <!--<div class="stars-rating">Осталось {{rewardFav.time_to_end}}</div>-->
+            <div class="profile-card-logo"><img class="org-logo" ng-src="{{profileRw.orgLogo}}"/></div>
+            <div class="profile-card-name">{{profileRw.orgName}}</div>
+            <div class="item item-image">
+                <img class="blur-img" ng-src="{{profileRw.orgBg}}"/>
+            </div>
+            <div class="profile-card-chart-wrap">
+                <div class="profile-card-multiplicator">Мультипликатор баллов</div>
+                <div class="profile-card-chart">
+                    <div class="profile-card-btn-arrow">
+                        <div class="ion-ios-arrow-up"></div>
+                        <div class="ion-ios-arrow-up"></div>
+                    </div>
+                    <div class="profile-card-chart-percent">{{profileRw.cardChartPercent}}%</div>
+                    <div
+                            round-progress
+                            max="100"
+                            current="profileRw.cardChartPercent"
+                            color="#70C84E"
+                            bgcolor="#38475C"
+                            radius="30"
+                            stroke="5"
+                            semi="false"
+                            rounded="true"
+                            clockwise="true"
+                            responsive="false"
+                            duration="800"
+                            animation="easeInOutQuart"
+                            animation-delay="5"></div>
+                </div>
 
+            </div>
+            <div class="item custom-item" ng-repeat="dpItem in profileRw.dopItems">
+                <div class="item-avatar">
+                    <img ng-src="{{dpItem.avatar}}">
+                </div>
+                <div class="card-description-wrap">
+                    <div class="card-description-text">{{dpItem.description}}</div>
+                    <div class="card-description-percent"> + {{dpItem.descriptionPercent}} %</div>
+                </div>
+            </div>
+        </div>
     </ion-content>
 </ion-view>

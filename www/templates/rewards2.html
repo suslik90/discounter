@@ -1,4 +1,4 @@
-<ion-view title="Scrollable Tabbed Slide box">
+<ion-view title="Реварды">
     <ion-content scroll="false">
         <tab-slide-box tab="{{activeIndexSlide}}">
             <div class="tsb-icons" style="display: none">
@@ -17,9 +17,6 @@
                 <ion-slide>
                     <ion-scroll style="height:100%" delegate-handle="slide1Scroll">
                         <div class="card rewards" ng-repeat="reward in rewards">
-                            <!--<div class="item item-divider">-->
-                                <!--{{reward.name}}-->
-                            <!--</div>-->
                             <div class="stars-rating">Осталось {{reward.time_to_end}}</div>
                             <div class="item item-image">
                                 <img ng-src="{{reward.img}}"/>
@@ -30,27 +27,28 @@
                                 {{reward.name}}
                             </div>
                         </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                     </ion-scroll>
                 </ion-slide>
                 <ion-slide>
-
                     <ion-scroll style="height:100%">
                         <div class="card rewards" ng-repeat="reward in rewards">
-                            <!--<div class="item item-divider">-->
-                                <!--{{reward.name}}-->
-                            <!--</div>-->
-                            <div class="stars-rating">
-
-                            </div>
+                            <div class="stars-rating">Осталось {{reward.time_to_end}}</div>
                             <div class="item item-image">
                                 <img ng-src="{{reward.img}}"/>
                             </div>
-                            <div class="progress-percent {{reward.percent.color}}"> %</div>
-                            <div class="item item-divider progress-reward">
+                            <div class="progress-percent {{reward.category.color}}">{{reward.category.text}}</div>
+                            <div class="btn-add-reward"><i class="ion-ios-plus-empty"></i></div>
+                            <div class="item item-divider2">
                                 {{reward.name}}
-
-                            </div>
-                        </div>
+                            </div>                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                     </ion-scroll>
 
                 </ion-slide>
@@ -67,17 +65,3 @@
         </tab-slide-box>
     </ion-content>
 </ion-view>
-<style>
-    .slider-slide h3 {
-        color: #fff;
-        margin-top: 10px;
-    }
-
-    .scroll {
-        height: 100%;
-    }
-
-    .tabbed-slidebox .tsb-icons:after {
-        display: none;
-    }
-</style>

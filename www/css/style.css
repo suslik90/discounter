@@ -286,7 +286,7 @@
 }
 
 .menu-background, .head-menu, .menu-background a.item-content {
-    background-color: #A09C9C;
+    background-color: #6DC94A;
     /*background-image: url("../img/abstraccshiya.jpg");*/
     color: #F1FCFF;
 }
@@ -399,14 +399,12 @@ progress::-webkit-progress-value {
 
 .progress {
     position: absolute;
-    color: #bbb;
-    font-weight: 100;
+    color: #38475C;
+    font-weight: 500;
     line-height: 1;
-    top: 42%;
-    bottom: auto;
-    left: 28%;
-    transform: translateY(-50%) translateX(-50%);
-    font-size: 35.7143px;
+    top: 34%;
+    left: 38%;
+    font-size: 51.7143px;
 }
 
 /***** rewards ******/
@@ -485,7 +483,6 @@ progress::-webkit-progress-value {
 .btn-add-reward{
     width:40px;
     height: 40px;
-    border:1px solid white;
     position: absolute;
     right: 30px;
     z-index: 4;
@@ -496,18 +493,158 @@ progress::-webkit-progress-value {
     padding-top: 4px;
 }
 .btn-add-reward:active{
+    background-color: white;
+    color:#78BB5C;
+}
+.pane, .view{
+    background-color: #E8E8E8 !important;
+}
+
+.btn-remove-reward{
     width:40px;
     height: 40px;
     position: absolute;
     right: 30px;
     z-index: 4;
     margin-top: -20px;
+    background-color: #F45D40;
+    color:white;
+    font-size: 27px;
+    padding-top: 6px;
+    text-align: center;
+}
+.btn-remove-reward:active{
+    background-color: white;
+    color:#F45D40;
+}
+[nav-bar-transition="android"] [nav-bar="active"] .bar,
+[nav-bar-transition="android"] [nav-bar="entering"] .bar,
+[nav-bar-transition="ios"] [nav-bar="active"] .bar,
+[nav-bar-transition="ios"] [nav-bar="entering"] .bar{
+    background-color: #6DC94A;
+}
+.wrap-circle-chart{
+    position: relative;
+    text-align: center;
+    margin-top:15px;
+}
+.profile-card .blur-img{
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+}
+.profile-card-logo{
+    width: 90px;
+    /* border: 1px solid red; */
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+    margin-top: 14px;
+    margin-left: 14px;
+    background-color: white;
+    -webkit-box-shadow: 0 3px 6px -2px #777;
+    -moz-box-shadow: 0 3px 6px -2px #777;
+    box-shadow: 0 3px 6px -2px #777;
+}
+.profile-card-logo .org-logo{
+    width:60px;
+}
+.profile-card-name{
+    width: 220px;
+    height: 33px;
+    text-align: center;
+    position: absolute;
+    z-index: 3;
+    margin-top: 14px;
+    margin-left: 110px;
+    color: white;
+    font-size: 28px;
+    text-shadow: 0px 0px 12px #777;
+}
+.profile-card-chart-wrap{
+    margin-top: -70px;
+    position: absolute;
+    z-index: 30;
+    width: 94.3%;
+    background-color: rgba(0,0,0,0.2);
+    color:white;
+    padding-top: 5px;
+}
+.profile-card-multiplicator{
+    width: 46%;
+    float: left;
+    text-align: right;
+    margin-top: 11px;
+    letter-spacing: 1px;
+}
+.profile-card-chart{
+    width: 20%;
+    float: left;
+    margin-left: 30px;
+}
+.profile-card-chart-percent{
+    position: absolute;
+    z-index: 3;
+    margin-top: 19px;
+    margin-left: 19px;
+}
+.profile-card-btn-arrow{
+    width:40px;
+    height: 40px;
+    position: absolute;
+    right: 15px;
+    z-index: 4;
+    margin-top: -25px;
+    background-color: #78BB5C;
+    color:white;
+    font-size: 27px;
+    text-align: center;
+}
+.profile-card-btn-arrow:active{
     background-color: white;
     color:#78BB5C;
-    font-size: 27px;
-    padding-top: 4px;
 }
-.pane, .view{
-    background-color: #E8E8E8 !important;
+.profile-card-btn-arrow div:first-child{
+    margin-bottom: -17px;
 }
+.card-description-wrap{
+    height: 40px;
+}
+.profile-card .item-avatar{
+    float: left;
+}
+.card-description-text{
+    width:53%;
+    float:left;
+    margin-top: 3px;
+
+}
+.card-description-percent{
+    width:40%;
+    margin-top: 3px;
+    font-size: 25px;
+    color:#78BB5C;
+}
+.custom-item{
+    max-height: 65px;
+    border:0;
+    /*min-height: 40px;*/
+}
+.custom-item .item-avatar{
+    padding-left: 55px;
+}
+/***** tab scroll ****/
+.slider-slide h3 {
+    color: #fff;
+    margin-top: 10px;
+}
+
+.scroll {
+    height: 100%;
+}
+
+.tabbed-slidebox .tsb-icons:after {
+    display: none;
+}
+/********************/
+/**/
 /*******************/

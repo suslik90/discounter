@@ -71,7 +71,7 @@ angular.module('starter.controllers', [])
 
         $scope.Chart = {};
         $scope.Chart.progress = $scope.getProgress();
-        $scope.progressLabel = $scope.Chart.progress + "/100";
+        $scope.progressLabel = $scope.Chart.progress + "%";
 
 
         $scope.brands = [
@@ -106,6 +106,23 @@ angular.module('starter.controllers', [])
             $scope.friendshipButton = false;
             $scope.friendshipText = true;
         }
+
+        /* 22.05.2016 г */
+        $scope.Charts={};
+
+        $scope.profileRewards = [
+            {id: 1, orgName: 'Азбука Вкуса',orgLogo: 'img/av.jpg', orgBg: 'img/cezar.jpg', cardChartPercent: 65, dopItems: [
+                {id: 1, avatar: 'img/dog.jpeg', description: 'Вино столовое', descriptionPercent: 15}]
+            },
+            {id: 2, orgName: 'Re Store',orgLogo: 'img/re-store_logo.png', orgBg: 'img/re-store_bg.jpg', cardChartPercent: 25, dopItems: [
+                {id: 1, avatar: 'img/sove.jpg', description: 'Приведи друга', descriptionPercent: 50},
+                {id: 2, avatar: 'img/cat.jpeg', description: 'Iphone 8G', descriptionPercent: 18}]
+            },
+        ];
+
+
+        /***************/
+
 
     })
     .controller('messagesCtrl', function ($scope, $state, $localstorage, Items, $timeout, $ionicScrollDelegate, $ionicPopup) {
@@ -363,25 +380,25 @@ angular.module('starter.controllers', [])
     })
     .controller('rewards2Ctrl', function ($scope, $rootScope, $location) {
         $scope.tabs = [
-            {"text" : "Home"},
-            {"text" : "Games"},
-            {"text" : "Mail"},
-            {"text" : "Work"},
-            {"text" : "State"},
+            {"text": "Home"},
+            {"text": "Games"},
+            {"text": "Mail"},
+            {"text": "Work"},
+            {"text": "State"},
 
         ];
         $scope.activeIndexSlide = 0;
-        $scope.mainProgressWidth=20;
-        $scope.onSlideMove = function(data){
+        $scope.mainProgressWidth = 20;
+        $scope.onSlideMove = function (data) {
 
-            if(data.index > $scope.activeIndexSlide){
-                $scope.mainProgressWidth+=20;
-            }else if(data.index < $scope.activeIndexSlide){
-                $scope.mainProgressWidth-=20;
-            }else{
-                $scope.mainProgressWidth-=0;
+            if (data.index > $scope.activeIndexSlide) {
+                $scope.mainProgressWidth += 20;
+            } else if (data.index < $scope.activeIndexSlide) {
+                $scope.mainProgressWidth -= 20;
+            } else {
+                $scope.mainProgressWidth -= 0;
             }
-            $scope.activeIndexSlide=data.index;
+            $scope.activeIndexSlide = data.index;
         };
 
         $scope.rewards = [
@@ -392,7 +409,7 @@ angular.module('starter.controllers', [])
                 img: "img/nike.jpg",
                 category: {text: 'Кроссовки Nike', color: 'white'},
                 color_line: 'indigo',
-                time_to_end:'12:00:00'
+                time_to_end: '12:00:00'
             },
             {
                 id: 2,
@@ -401,7 +418,7 @@ angular.module('starter.controllers', [])
                 img: "img/milk.jpeg",
                 category: {text: 'Молоко из под ...', color: 'white'},
                 color_line: 'darkorange',
-                time_to_end:'2:05:45'
+                time_to_end: '2:05:45'
             },
             {
                 id: 3,
@@ -410,7 +427,7 @@ angular.module('starter.controllers', [])
                 img: "img/case.png",
                 category: {text: 'Защита Iphone', color: 'white'},
                 color_line: 'blue',
-                time_to_end:'00:10:01'
+                time_to_end: '00:10:01'
             }
         ];
 
@@ -551,5 +568,29 @@ angular.module('starter.controllers', [])
         $localstorage.clear();
         console.log($localstorage);
         $state.go('login');
+    })
+    .controller('favoritesCtrl', function ($scope, $state, $ionicHistory, $localstorage) {
+        $scope.rewardsFavorites = [
+            {
+                id: 1,
+                name: "Мода мода мода",
+                using: false,
+                img: "img/nike.jpg",
+                category: {text: 'Кроссовки Nike', color: 'white'},
+                color_line: 'indigo',
+                time_to_end: '12:00:00'
+            },
+            {
+                id: 3,
+                name: "Для девайса",
+                using: false,
+                img: "img/case.png",
+                category: {text: 'Защита Iphone', color: 'white'},
+                color_line: 'blue',
+                time_to_end: '00:10:01'
+            }
+        ];
+
+
     })
 ;

@@ -151,10 +151,19 @@ angular.module('starter.routes', [])
                     }
                 }
             })
+            .state('app.favorites', {
+                url: '/favorites',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/favorites.html',
+                        controller: 'favoritesCtrl'
+                    }
+                }
+            })
         ;
         // if none of the above states are matched, use this as the fallback
         //$urlRouterProvider.otherwise('/app/messages');
-       $urlRouterProvider.otherwise('/app/rewards');
+       $urlRouterProvider.otherwise('/app/profile');
        //$urlRouterProvider.otherwise('/app/rewards2');
        //$urlRouterProvider.otherwise('/login');
     });

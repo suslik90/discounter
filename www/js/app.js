@@ -33,13 +33,10 @@ angular.module('starter', ['ionic','ionic.service.core',
             if (window.StatusBar) {
               // org.apache.cordova.statusbar required
               //StatusBar.styleDefault();
-                //StatusBar.overlaysWebView( true );
-                //StatusBar.backgroundColorByHexString('#209dc2');
-                //StatusBar.styleBlackTranslucent();
-                $cordovaStatusbar.overlaysWebView(true);
 
-                // styles: Default : 0, LightContent: 1, BlackTranslucent: 2, BlackOpaque: 3
-                $cordovaStatusbar.style(2);
+                StatusBar.backgroundColorByHexString('#BCBCBC');
+
+                $cordovaStatusbar.overlaysWebView(true);
             }
 
             ionic.Platform.fullScreen(true,true);
