@@ -361,6 +361,60 @@ angular.module('starter.controllers', [])
     })
     .controller('settingsCtrl', function ($scope) {
     })
+    .controller('rewards2Ctrl', function ($scope, $rootScope, $location) {
+        $scope.tabs = [
+            {"text" : "Home"},
+            {"text" : "Games"},
+            {"text" : "Mail"},
+            {"text" : "Work"},
+            {"text" : "State"},
+
+        ];
+        $scope.activeIndexSlide = 0;
+        $scope.mainProgressWidth=20;
+        $scope.onSlideMove = function(data){
+
+            if(data.index > $scope.activeIndexSlide){
+                $scope.mainProgressWidth+=20;
+            }else if(data.index < $scope.activeIndexSlide){
+                $scope.mainProgressWidth-=20;
+            }else{
+                $scope.mainProgressWidth-=0;
+            }
+            $scope.activeIndexSlide=data.index;
+        };
+
+        $scope.rewards = [
+            {
+                id: 1,
+                name: "Мода мода мода",
+                using: false,
+                img: "img/nike.jpg",
+                category: {text: 'Кроссовки Nike', color: 'white'},
+                color_line: 'indigo',
+                time_to_end:'12:00:00'
+            },
+            {
+                id: 2,
+                name: "О здоровье",
+                using: false,
+                img: "img/milk.jpeg",
+                category: {text: 'Молоко из под ...', color: 'white'},
+                color_line: 'darkorange',
+                time_to_end:'2:05:45'
+            },
+            {
+                id: 3,
+                name: "Для девайса",
+                using: false,
+                img: "img/case.png",
+                category: {text: 'Защита Iphone', color: 'white'},
+                color_line: 'blue',
+                time_to_end:'00:10:01'
+            }
+        ];
+
+    })
     .controller('mystarsCtrl', function ($scope) {
         $scope.brands = [
             {

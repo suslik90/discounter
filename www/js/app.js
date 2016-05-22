@@ -8,7 +8,7 @@ angular.module('starter', ['ionic','ionic.service.core',
 
                            'firebase',
                            'ngCordova',
-    'ngSanitize',
+    'ngSanitize','tabSlideBox',
                            'ionMDRipple',
                            'starter.controllers',
                            'starter.routes',
@@ -16,7 +16,12 @@ angular.module('starter', ['ionic','ionic.service.core',
                            'starter.directives',
     'angular-svg-round-progressbar'])
 
-    .run(function ($ionicPlatform, $cordovaStatusbar, $timeout) {
+    .run(function ($ionicPlatform, $cordovaStatusbar, $timeout, $rootScope, $location) {
+        $rootScope.$on("$locationChangeStart", function(event, next, current){
+            $rootScope.error = null;
+            var path = $location.path();
+        });
+
         $ionicPlatform.ready(function () {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)

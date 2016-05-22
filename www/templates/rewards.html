@@ -12,8 +12,6 @@
             </div>
             <div class="stars-rating" ng-click="toogleRating({{reward.id}}, {{reward.percent.progress}})"><i
                     ng-class="{'ion-ios-star': showDetails({{reward.id}}), 'ion-ios-star-outline': !showDetails({{reward.id}})}"></i> </div>
-            <!--<div class="stars-rating"><i ng-class="({{reward.using}} == true) ? 'ion-ios-star' : 'ion-ios-star-outline'"></i> </div>-->
-            <!--<div class="stars-rating" ng-click="toogleRating({{reward.id}})" ng-show="!{{reward.using}}" ng-hide="{{reward.using}}"><i class="ion-ios-star-outline"></i> </div>-->
             <div class="item item-image">
                 <img ng-src="{{reward.img}}"/>
             </div>
