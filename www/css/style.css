@@ -645,6 +645,9 @@ progress::-webkit-progress-value {
 .tabbed-slidebox .tsb-icons:after {
     display: none;
 }
+.overflow-scroll .scroll{
+    height: 94.5%;
+}
 /********************/
 /**/
 /*******************/

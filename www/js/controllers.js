@@ -108,15 +108,27 @@ angular.module('starter.controllers', [])
         }
 
         /* 22.05.2016 г */
-        $scope.Charts={};
+        $scope.Charts = {};
 
         $scope.profileRewards = [
-            {id: 1, orgName: 'Азбука Вкуса',orgLogo: 'img/av.jpg', orgBg: 'img/cezar.jpg', cardChartPercent: 65, dopItems: [
-                {id: 1, avatar: 'img/dog.jpeg', description: 'Вино столовое', descriptionPercent: 15}]
+            {
+                id: 1,
+                orgName: 'Азбука Вкуса',
+                orgLogo: 'img/av.jpg',
+                orgBg: 'img/cezar.jpg',
+                cardChartPercent: 65,
+                dopItems: [
+                    {id: 1, avatar: 'img/dog.jpeg', description: 'Вино столовое', descriptionPercent: 15}]
             },
-            {id: 2, orgName: 'Re Store',orgLogo: 'img/re-store_logo.png', orgBg: 'img/re-store_bg.jpg', cardChartPercent: 25, dopItems: [
-                {id: 1, avatar: 'img/sove.jpg', description: 'Приведи друга', descriptionPercent: 50},
-                {id: 2, avatar: 'img/cat.jpeg', description: 'Iphone 8G', descriptionPercent: 18}]
+            {
+                id: 2,
+                orgName: 'Re Store',
+                orgLogo: 'img/re-store_logo.png',
+                orgBg: 'img/re-store_bg.jpg',
+                cardChartPercent: 25,
+                dopItems: [
+                    {id: 1, avatar: 'img/sove.jpg', description: 'Приведи друга', descriptionPercent: 50},
+                    {id: 2, avatar: 'img/cat.jpeg', description: 'Iphone 8G', descriptionPercent: 18}]
             },
         ];
 
@@ -287,7 +299,7 @@ angular.module('starter.controllers', [])
     })
     //.controller('bookmarkCtrl', function ($scope, $stateParams) {
     //})
-    .controller('rewardsCtrl', function ($scope, $stateParams, $timeout) {
+    .controller('rewardsCtrl', function ($scope, $stateParams, $timeout, $ionicScrollDelegate) {
         $scope.item = {class: "#D4D4D4", width: 10};
 
         $scope.rewards = [
@@ -378,7 +390,7 @@ angular.module('starter.controllers', [])
     })
     .controller('settingsCtrl', function ($scope) {
     })
-    .controller('rewards2Ctrl', function ($scope, $rootScope, $location) {
+    .controller('rewards2Ctrl', function ($scope, $rootScope, $location, $ionicScrollDelegate, $window) {
         $scope.tabs = [
             {"text": "Home"},
             {"text": "Games"},
@@ -388,7 +400,7 @@ angular.module('starter.controllers', [])
 
         ];
         $scope.activeIndexSlide = 0;
-        $scope.mainProgressWidth = 20;
+        $scope.mainProgressWidth = $scope.maxScroll = 0;
         $scope.onSlideMove = function (data) {
 
             if (data.index > $scope.activeIndexSlide) {
@@ -428,8 +440,73 @@ angular.module('starter.controllers', [])
                 category: {text: 'Защита Iphone', color: 'white'},
                 color_line: 'blue',
                 time_to_end: '00:10:01'
+            },
+            {
+                id: 4,
+                name: "Мода мода мода",
+                using: false,
+                img: "img/nike.jpg",
+                category: {text: 'Кроссовки Nike', color: 'white'},
+                color_line: 'indigo',
+                time_to_end: '12:00:00'
+            },
+            {
+                id: 5,
+                name: "О здоровье",
+                using: false,
+                img: "img/milk.jpeg",
+                category: {text: 'Молоко из под ...', color: 'white'},
+                color_line: 'darkorange',
+                time_to_end: '2:05:45'
+            },
+            {
+                id: 6,
+                name: "Для девайса",
+                using: false,
+                img: "img/case.png",
+                category: {text: 'Защита Iphone', color: 'white'},
+                color_line: 'blue',
+                time_to_end: '00:10:01'
+            },
+            {
+                id: 7,
+                name: "Мода мода мода",
+                using: false,
+                img: "img/nike.jpg",
+                category: {text: 'Кроссовки Nike', color: 'white'},
+                color_line: 'indigo',
+                time_to_end: '12:00:00'
+            },
+            {
+                id: 8,
+                name: "О здоровье",
+                using: false,
+                img: "img/milk.jpeg",
+                category: {text: 'Молоко из под ...', color: 'white'},
+                color_line: 'darkorange',
+                time_to_end: '2:05:45'
+            },
+            {
+                id: 9,
+                name: "Для девайса",
+                using: false,
+                img: "img/case.png",
+                category: {text: 'Защита Iphone', color: 'white'},
+                color_line: 'blue',
+                time_to_end: '00:10:01'
             }
         ];
+        $scope.changeProgress = function (_this) {
+            var delta = $ionicScrollDelegate.$getByHandle('slideScroll').getScrollPosition();
+            var width = Number(Math.round(100 / $scope.rewards.length));
+            if (delta.top >= 0) {
+                console.log($window.innerHeight);
+                $scope.maxScroll = delta.top;
+                    $scope.mainProgressWidth = ($scope.maxScroll/($scope.rewards.length*200))*100;
+                console.log($scope.mainProgressWidth)
+                $scope.$apply();
+            }
+        }
 
     })
     .controller('mystarsCtrl', function ($scope) {

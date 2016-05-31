@@ -1,5 +1,5 @@
 <ion-view title="Реварды">
-    <ion-content scroll="false">
+    <ion-content scroll="true">
         <tab-slide-box tab="{{activeIndexSlide}}">
             <div class="tsb-icons" style="display: none">
                 <div class="tsb-ic-wrp">
@@ -9,13 +9,13 @@
                     </ion-scroll>
                 </div>
             </div>
-            <div style="width:100%;height: 60px;background-color: #E8E8E8">
-                <div class="progress-subheader" ng-style="{'width': mainProgressWidth+'%','height': '60px'}"></div>
+            <div style="width:100%;height: 30px;background-color: #E8E8E8">
+                <div class="progress-subheader" ng-style="{'width': mainProgressWidth+'%','height': '30px'}"></div>
             </div>
             <ion-slide-box show-pager="false"
-                           on-slide-changed="slideHasChanged($index)">
+                           on-slide-changed="slideHasChanged($index)" >
                 <ion-slide>
-                    <ion-scroll style="height:100%" delegate-handle="slide1Scroll">
+                    <ion-scroll direction="y" style="height:100%" delegate-handle="slideScroll" on-scroll="changeProgress(this)">
                         <div class="card rewards" ng-repeat="reward in rewards">
                             <div class="stars-rating">Осталось {{reward.time_to_end}}</div>
                             <div class="item item-image">
