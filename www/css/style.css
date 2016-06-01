@@ -462,12 +462,10 @@ progress::-webkit-progress-value {
 }
 
 .progress-subheader {
-    transition: width 0.3s;
+    transition: width 0.3s ease-in-out;
+    -webkit-transition: width 0.3s ease-in-out;
     background: linear-gradient(to bottom, #C3E7B2, #70C84E);
     -webkit-transform: translate3d(0,0,0);
-    -webkit-transform: tranlsateZ(0);
-    -webkit-transform: scale3d(1,1,1);
-    -webkit-transform: scale3dZ(1);
 }
 .card.rewards:first-child{
     margin-top: 11px;

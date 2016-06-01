@@ -9,11 +9,78 @@
                     </ion-scroll>
                 </div>
             </div>
-            <div style="width:100%;height: 30px;background-color: #E8E8E8">
+            <div style="width:100%;height: 30px;background-color: #329be8" ng-hide="hideProgress">
                 <div class="progress-subheader" ng-style="{'width': mainProgressWidth+'%','height': '30px'}"></div>
             </div>
+            <div style="height: 100%; width:20px; position:absolute;z-index: 1;"></div>
             <ion-slide-box show-pager="false"
                            on-slide-changed="slideHasChanged($index)" >
+                <ion-slide>
+                    <ion-scroll style="height:100%">
+                        <div class="wrap-circle-chart">
+                            <div class="progress" ng-model="Chart.progress" ng-bind-html="progressLabel"></div>
+                            <div
+                                    round-progress
+                                    max="100"
+                                    current="Chart.progress"
+                                    color="#70C84E"
+                                    bgcolor="#38475C"
+                                    radius="100"
+                                    stroke="25"
+                                    semi="false"
+                                    rounded="true"
+                                    clockwise="true"
+                                    responsive="false"
+                                    duration="800"
+                                    animation="easeInOutQuart"
+                                    animation-delay="5"></div>
+                        </div>
+                        <br/>
+                        <div class="card profile-card" ng-repeat="profileRw in profileRewards">
+                            <!--<div class="stars-rating">Осталось {{rewardFav.time_to_end}}</div>-->
+                            <div class="profile-card-logo"><img class="org-logo" ng-src="{{profileRw.orgLogo}}"/></div>
+                            <div class="profile-card-name">{{profileRw.orgName}}</div>
+                            <div class="item item-image">
+                                <img class="blur-img" ng-src="{{profileRw.orgBg}}"/>
+                            </div>
+                            <div class="profile-card-chart-wrap">
+                                <div class="profile-card-multiplicator">Мультипликатор баллов</div>
+                                <div class="profile-card-chart">
+                                    <div class="profile-card-btn-arrow">
+                                        <div class="ion-ios-arrow-up"></div>
+                                        <div class="ion-ios-arrow-up"></div>
+                                    </div>
+                                    <div class="profile-card-chart-percent">{{profileRw.cardChartPercent}}%</div>
+                                    <div
+                                            round-progress
+                                            max="100"
+                                            current="profileRw.cardChartPercent"
+                                            color="#70C84E"
+                                            bgcolor="#38475C"
+                                            radius="30"
+                                            stroke="5"
+                                            semi="false"
+                                            rounded="true"
+                                            clockwise="true"
+                                            responsive="false"
+                                            duration="800"
+                                            animation="easeInOutQuart"
+                                            animation-delay="5"></div>
+                                </div>
+
+                            </div>
+                            <div class="item custom-item" ng-repeat="dpItem in profileRw.dopItems">
+                                <div class="item-avatar">
+                                    <img ng-src="{{dpItem.avatar}}">
+                                </div>
+                                <div class="card-description-wrap">
+                                    <div class="card-description-text">{{dpItem.description}}</div>
+                                    <div class="card-description-percent"> + {{dpItem.descriptionPercent}} %</div>
+                                </div>
+                            </div>
+                        </div>
+                    </ion-scroll>
+                </ion-slide>
                 <ion-slide>
                     <ion-scroll direction="y" style="height:100%" delegate-handle="slideScroll" on-scroll="changeProgress(this)">
                         <div class="card rewards" ng-repeat="reward in rewards">
@@ -34,32 +101,20 @@
                     </ion-scroll>
                 </ion-slide>
                 <ion-slide>
-                    <ion-scroll style="height:100%">
-                        <div class="card rewards" ng-repeat="reward in rewards">
-                            <div class="stars-rating">Осталось {{reward.time_to_end}}</div>
-                            <div class="item item-image">
-                                <img ng-src="{{reward.img}}"/>
-                            </div>
-                            <div class="progress-percent {{reward.category.color}}">{{reward.category.text}}</div>
-                            <div class="btn-add-reward"><i class="ion-ios-plus-empty"></i></div>
-                            <div class="item item-divider2">
-                                {{reward.name}}
-                            </div>                        </div>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                    </ion-scroll>
-
-                </ion-slide>
-                <ion-slide>
-                    <h3>Mail content</h3>
-                </ion-slide>
-                <ion-slide>
-                    <h3>Car content</h3>
-                </ion-slide>
-                <ion-slide>
-                    <h3>Profile content</h3>
+                    <div class="card rewards" ng-repeat="rewardFav in rewardsFavorites">
+                        <!--<div class="item item-divider">-->
+                        <!--{{reward.name}}-->
+                        <!--</div>-->
+                        <div class="stars-rating">Осталось {{rewardFav.time_to_end}}</div>
+                        <div class="item item-image">
+                            <img ng-src="{{rewardFav.img}}"/>
+                        </div>
+                        <div class="progress-percent {{rewardFav.category.color}}">{{rewardFav.category.text}}</div>
+                        <div class="btn-remove-reward"><i class="ion-ios-minus-empty"></i></div>
+                        <div class="item item-divider2">
+                            {{rewardFav.name}}
+                        </div>
+                    </div>
                 </ion-slide>
             </ion-slide-box>
         </tab-slide-box>
